@@ -1,0 +1,107 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "HotelManagementContext",
+   "ContextNamespace": "Models",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "Models",
+   "OutputContextPath": "Models",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "BusinessObject",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Account]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Bill]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cinema]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Coupon]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Film]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FilmInCinema]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Location]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Payment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Role]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Room]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Scheduling]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Seat]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Service]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ServiceInBill]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ServiceInCinema]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Ticked]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TypeInFilm]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Types]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-5FOPUL4\\SQLEXPRESS.Cinema Management",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}
