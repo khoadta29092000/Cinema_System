@@ -36,7 +36,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    films = await context.Films.Include(x=> x.FilmInCinemas).ToListAsync();
+                    films = await context.Films.ToListAsync();
 
                 }
                 return films;
@@ -88,10 +88,25 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
+                    var p1 = await context.Films.FirstOrDefaultAsync(c => c.Title.Equals(m.Title));
 
+                    if (p1 == null)
+                    {
 
-                    context.Entry<Film>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    await context.SaveChangesAsync();
+                        context.Entry<Film>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        await context.SaveChangesAsync();
+
+                    }
+                    else
+                    {
+                        if (p1.Title == m.Title)
+                        {
+                            context.Entry<Film>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                        }
+
+                        throw new Exception("Cinema Name is Exits");
+                    }
 
                 }
             }

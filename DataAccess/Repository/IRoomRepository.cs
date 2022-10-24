@@ -17,6 +17,6 @@ namespace DataAccess.Repository
 
         Task UpdateRoom(Room m);
         Task AddRoom(Room m);
-        Task<List<Room>> SearchByTitle(string search, int page, int pageSize);
+        Task<List<Room>> SearchByTitle(string search,int RoleId, int page, int pageSize);
     }
 }

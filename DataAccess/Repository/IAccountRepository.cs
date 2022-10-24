@@ -18,7 +18,7 @@ namespace DataAccess.Repository
 
          Task UpdateMember(Account m);
          Task AddMember(Account m);
-         Task<List<Account>> SearchByEmail(string search, int page, int pageSize);
+         Task<List<Account>> SearchByEmail(string search,int CinemaId, int page, int pageSize);
     
     }
 }

@@ -18,6 +18,6 @@ namespace DataAccess.Repository
         public Task UpdateActive(int RoomId, bool? active) => RoomDAO.Instance.UpdateActive(RoomId, active);
         public Task AddRoom(Room m) => RoomDAO.AddRoom(m);
         public Task UpdateRoom(Room m) => RoomDAO.UpdateRoom(m);
-        public Task<List<Room>> SearchByTitle(string search, int page, int pageSize) => RoomDAO.Instance.SearchByTitle(search, page, pageSize);
+        public Task<List<Room>> SearchByTitle(string search,int RoleId ,int page, int pageSize) => RoomDAO.Instance.SearchByTitle(search, RoleId, page, pageSize);
     }
 }

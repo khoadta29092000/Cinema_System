@@ -31,12 +31,12 @@ namespace CinemaSystem.Controllers
       
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(string search, int page, int pageSize)
+        public async Task<IActionResult> GetAll(string search,int RoleId ,int page, int pageSize)
         {
       
             try
             {
-                        var AccountList = await repositoryAccount.SearchByEmail(search,page, pageSize);
+                        var AccountList = await repositoryAccount.SearchByEmail(search, RoleId, page, pageSize);
                         var Count = AccountList.Count();
                         return Ok(new { StatusCode = 200, Message = "Load successful", data = AccountList, Count });
                      
@@ -201,6 +201,7 @@ namespace CinemaSystem.Controllers
             {
                 return BadRequest();
             }
+           
             try
             {
                 var Acc = new Account

@@ -23,12 +23,12 @@ namespace CinemaSystem.Controllers
 
         }
         [HttpGet]
-        public async Task<IActionResult> GetAll(string search, int page, int pageSize)
+        public async Task<IActionResult> GetAll(string search, int CinemaId, int page, int pageSize)
         {
 
             try
             {
-                var TypeList = await roomRepository.SearchByTitle(search, page, pageSize);
+                var TypeList = await roomRepository.SearchByTitle(search, CinemaId, page, pageSize);
                 var Count = TypeList.Count();
                 return Ok(new { StatusCode = 200, Message = "Load successful", data = TypeList, Count });
 

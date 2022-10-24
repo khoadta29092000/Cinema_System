@@ -7,8 +7,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
-    <_PublishTargetUrl>ftp://198.37.116.30/www.CinemaSystem.somee.com</_PublishTargetUrl>
-    <History>True|2022-10-24T07:26:20.1866377Z;True|2022-10-21T12:30:56.3584319+07:00;</History>
+    <_PublishTargetUrl>ftp://198.37.116.25/www.CinemaSystem2.somee.com</_PublishTargetUrl>
+    <History>True|2022-10-24T07:38:38.9610368Z;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -24,22 +24,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/06/2022 03:26:00</publishTime>
     </File>
     <File Include="BusinessObject.dll">
-      <publishTime>10/21/2022 13:19:36</publishTime>
+      <publishTime>10/24/2022 14:29:52</publishTime>
     </File>
     <File Include="BusinessObject.pdb">
-      <publishTime>10/21/2022 13:19:36</publishTime>
+      <publishTime>10/24/2022 14:29:52</publishTime>
     </File>
     <File Include="CinemaSystem.deps.json">
-      <publishTime>10/24/2022 14:20:38</publishTime>
+      <publishTime>10/24/2022 14:33:05</publishTime>
     </File>
     <File Include="CinemaSystem.dll">
-      <publishTime>10/24/2022 14:20:37</publishTime>
+      <publishTime>10/24/2022 14:33:04</publishTime>
     </File>
     <File Include="CinemaSystem.exe">
-      <publishTime>10/24/2022 14:20:37</publishTime>
+      <publishTime>10/24/2022 14:33:04</publishTime>
     </File>
     <File Include="CinemaSystem.pdb">
-      <publishTime>10/24/2022 14:20:37</publishTime>
+      <publishTime>10/24/2022 14:33:04</publishTime>
     </File>
     <File Include="CinemaSystem.runtimeconfig.json">
       <publishTime>10/20/2022 14:09:15</publishTime>
@@ -207,7 +207,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/02/2013 03:54:24</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/24/2022 14:20:39</publishTime>
+      <publishTime>10/24/2022 14:33:36</publishTime>
     </File>
   </ItemGroup>
 </Project>
