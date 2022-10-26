@@ -41,24 +41,7 @@ namespace CinemaSystem.Controllers
 
 
         }
-        [HttpGet("Location")]
-        public async Task<IActionResult> GetAllLocation()
-        {
-
-            try
-            {
-                var CinemaList = await cinemaRepository.GetLocations();
-                var Count = CinemaList.Count();
-                return Ok(new { StatusCode = 200, Message = "Load successful", data = CinemaList, Count });
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
-            }
-
-
-        }
+       
         [HttpGet("{id}")]
         public async Task<ActionResult> GetCinemaById(int id)
         {

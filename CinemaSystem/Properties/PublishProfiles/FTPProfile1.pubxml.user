@@ -7,8 +7,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
-    <_PublishTargetUrl>ftp://198.37.116.30/www.CinemaSystem.somee.com</_PublishTargetUrl>
-    <History>True|2022-10-26T07:43:38.3517157Z;True|2022-10-25T14:00:32.5140117+07:00;False|2022-10-25T13:55:55.9054063+07:00;False|2022-10-25T13:54:58.8837387+07:00;True|2022-10-24T14:26:20.1866377+07:00;True|2022-10-21T12:30:56.3584319+07:00;</History>
+    <_PublishTargetUrl>ftp://198.37.116.25/www.CinemaSystem2.somee.com</_PublishTargetUrl>
+    <History>False|2022-10-25T06:56:50.6152127Z;False|2022-10-25T13:53:39.1560648+07:00;True|2022-10-24T14:38:38.9610368+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -24,31 +24,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/06/2022 03:26:00</publishTime>
     </File>
     <File Include="BusinessObject.dll">
-      <publishTime>10/26/2022 14:42:21</publishTime>
+      <publishTime>10/24/2022 14:29:52</publishTime>
     </File>
     <File Include="BusinessObject.pdb">
-      <publishTime>10/26/2022 14:42:21</publishTime>
+      <publishTime>10/24/2022 14:29:52</publishTime>
     </File>
     <File Include="CinemaSystem.deps.json">
-      <publishTime>10/26/2022 14:42:27</publishTime>
+      <publishTime>10/25/2022 13:56:13</publishTime>
     </File>
     <File Include="CinemaSystem.dll">
-      <publishTime>10/26/2022 14:42:27</publishTime>
+      <publishTime>10/24/2022 14:33:04</publishTime>
     </File>
     <File Include="CinemaSystem.exe">
-      <publishTime>10/26/2022 14:42:27</publishTime>
+      <publishTime>10/25/2022 13:56:12</publishTime>
     </File>
     <File Include="CinemaSystem.pdb">
-      <publishTime>10/26/2022 14:42:27</publishTime>
+      <publishTime>10/25/2022 13:56:12</publishTime>
     </File>
     <File Include="CinemaSystem.runtimeconfig.json">
-      <publishTime>10/26/2022 14:42:27</publishTime>
+      <publishTime>10/20/2022 14:09:15</publishTime>
     </File>
     <File Include="DataAccess.dll">
-      <publishTime>10/26/2022 14:42:24</publishTime>
+      <publishTime>10/24/2022 14:20:20</publishTime>
     </File>
     <File Include="DataAccess.pdb">
-      <publishTime>10/26/2022 14:42:24</publishTime>
+      <publishTime>10/25/2022 13:50:01</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
       <publishTime>10/27/2020 05:59:54</publishTime>
@@ -207,7 +207,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/02/2013 03:54:24</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/26/2022 14:42:38</publishTime>
+      <publishTime>10/25/2022 13:52:47</publishTime>
     </File>
   </ItemGroup>
 </Project>

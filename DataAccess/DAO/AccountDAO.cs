@@ -93,11 +93,26 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
+                 
+                    var p1 = await context.Accounts.FirstOrDefaultAsync(c => c.Email.Equals(m.Email));
+                   
+                    if (p1 == null )
+                    {
+                      
+                            context.Entry<Account>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                                         
+                    }
+                    else
+                     {
+                    if (p1.Email == m.Email)
+                    {
+                            context.Entry<Account>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                        }
 
-
-                    context.Entry<Account>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    await context.SaveChangesAsync();
-
+                        throw new Exception("Email is Exits");
+                    }
                 }
             }
             catch (Exception ex)
@@ -132,33 +147,45 @@ namespace DataAccess.DAO
                 throw new Exception(e.Message);
             }
         }
-        public async Task<List<Account>> SearchByEmail(string search, int page, int pageSize)
+        public async Task<List<Account>> SearchByEmail(string search,int RoleId ,int page, int pageSize)
         {
             List<Account> searchResult = null;
-            if(page == 0 || pageSize == 0)
+            IEnumerable<Account> searchValues = await GetMembers();
+            if (page == 0 || pageSize == 0)
             {
                 page = 1;
                 pageSize = 1000;
             }
              if(search == null)
             {
-                IEnumerable<Account> searchValues = await GetMembers();
+  
+              
+                if (RoleId != 0)
+                {
+                    searchValues = searchValues.Where(c => c.RoleId == RoleId).ToList();
+                }
                 searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                 searchResult = searchValues.ToList();
             }
+           
             else
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    IEnumerable<Account> searchValues = await (from member in context.Accounts
-                                       where member.Email.ToLower().Contains(search.ToLower())
-                                       select member).ToListAsync();
+                    searchValues = await (from member in context.Accounts
+                                          where member.Email.ToLower().Contains(search.ToLower())
+                                          select member).ToListAsync();
+                    if (RoleId != 0)
+                    {
+                        searchValues = searchValues.Where(c => c.RoleId == RoleId).ToList();
+                    }
+                    searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
+                    searchResult = searchValues.ToList();
 
-                    searchValues =   searchValues.Skip((page - 1) * pageSize).Take(pageSize);
-                    searchResult =  searchValues.ToList();
+
                 }
             }
-           
+         
             return searchResult;
         }
         public async Task<Account> GetProfile(int AccountID)

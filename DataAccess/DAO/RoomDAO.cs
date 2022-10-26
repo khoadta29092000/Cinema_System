@@ -27,16 +27,29 @@ namespace DataAccess.DAO
                 }
             }
         }
-        public static async Task<List<Room>> GetRooms()
+        public static async Task<List<RoomDTO>> GetRooms()
         {
-            var rooms = new List<Room>();
+            var rooms = new List<RoomDTO>();
 
             try
             {
+
                 using (var context = new CinemaManagementContext())
                 {
-                    rooms = await context.Rooms.ToListAsync();
-
+                    rooms = await (from room in context.Rooms
+                                     join cinema in context.Cinemas on room.CinemaId equals cinema.Id into t
+                                     from cinema in t.DefaultIfEmpty()
+                                     select new RoomDTO
+                                     {
+                                         Id = room.Id,
+                                         Cinema = cinema.Name,
+                                         CinemaId = room.CinemaId,
+                                         Title = room.Title,
+                                         Description = room.Description,
+                                         Active = room.Active
+                                     }).ToListAsync();
+                       
+                    //rooms = await context.Rooms.ToListAsync();
                 }
                 return rooms;
             }
@@ -46,6 +59,7 @@ namespace DataAccess.DAO
             }
 
         }
+       
 
         public static async Task AddRoom(Room m)
         {
@@ -85,10 +99,25 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
+                    var p1 = await context.Rooms.FirstOrDefaultAsync(c => c.Title.Equals(m.Title));
 
+                    if (p1 == null)
+                    {
 
-                    context.Entry<Room>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    await context.SaveChangesAsync();
+                        context.Entry<Room>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        await context.SaveChangesAsync();
+
+                    }
+                    else
+                    {
+                        if (p1.Title == m.Title)
+                        {
+                            context.Entry<Room>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                        }
+
+                        throw new Exception("Email is Exits");
+                    }
 
                 }
             }
@@ -124,9 +153,10 @@ namespace DataAccess.DAO
                 throw new Exception(e.Message);
             }
         }
-        public async Task<List<Room>> SearchByTitle(string search, int page, int pageSize)
+        public async Task<List<RoomDTO>> SearchByTitle(string search,int CinemaId, int page, int pageSize)
         {
-            List<Room> searchResult = null;
+            List<RoomDTO> searchResult = null;
+            IEnumerable<RoomDTO> searchValues = await GetRooms();
             if (page == 0 || pageSize == 0)
             {
                 page = 1;
@@ -134,29 +164,49 @@ namespace DataAccess.DAO
             }
             if (search == null)
             {
-                IEnumerable<Room> searchValues = await GetRooms();
+
+          
+                if (CinemaId != 0)
+                {
+                    searchValues = searchValues.Where(c => c.CinemaId == CinemaId).ToList();
+                }
                 searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                 searchResult = searchValues.ToList();
             }
+           
             else
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    IEnumerable<Room> searchValues = await (from room in context.Rooms
-                                                            where room.Title.ToLower().Contains(search.ToLower())
-                                                             select room).ToListAsync();
+                    searchValues = await (from room in context.Rooms
+                                          join cinema in context.Cinemas on room.CinemaId equals cinema.Id into t
+                                          from cinema in t.DefaultIfEmpty()
+                                          where room.Title.Equals(search.ToLower())
+                                          select new RoomDTO
+                                          {
+                                              Id = room.Id,
+                                              Cinema = cinema.Name,
+                                              Title = room.Title,
+                                              Description = room.Description,
+                                              Active = room.Active
+                                          }).ToListAsync();
+                    if (CinemaId != 0)
+                    {
+                        searchValues = searchValues.Where(c => c.CinemaId == CinemaId).ToList();
+                    }
                     searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                     searchResult = searchValues.ToList();
                 }
+              
             }
-
+          
             return searchResult;
         }
-        public async Task<Room> GetRoomById(int RoomId)
+        public async Task<RoomDTO> GetRoomById(int RoomId)
         {
 
-            IEnumerable<Room> rooms = await GetRooms();
-            Room room = rooms.SingleOrDefault(mb => mb.Id == RoomId);
+            IEnumerable<RoomDTO> rooms = await GetRooms();
+            RoomDTO room = rooms.SingleOrDefault(mb => mb.Id == RoomId);
             return room;
         }
         public async Task UpdateActive(int RoomId, bool? acticve)

@@ -31,12 +31,12 @@ namespace CinemaSystem.Controllers
       
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(string search, int page, int pageSize)
+        public async Task<IActionResult> GetAll(string search,int RoleId ,int page, int pageSize)
         {
       
             try
             {
-                        var AccountList = await repositoryAccount.SearchByEmail(search,page, pageSize);
+                        var AccountList = await repositoryAccount.SearchByEmail(search, RoleId, page, pageSize);
                         var Count = AccountList.Count();
                         return Ok(new { StatusCode = 200, Message = "Load successful", data = AccountList, Count });
                      
@@ -117,7 +117,7 @@ namespace CinemaSystem.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "1")]
-        public async Task<IActionResult>  Create(Account acc)
+        public async Task<IActionResult> Create(Account acc)
         {
 
             try
@@ -137,16 +137,51 @@ namespace CinemaSystem.Controllers
                     Password = acc.Password,
                     Phone = acc.Phone
                 };
-                  await repositoryAccount.AddMember(newAcc);
-                 return Ok(new { StatusCode = 200, Message = "Add successful"});
+                await repositoryAccount.AddMember(newAcc);
+                return Ok(new { StatusCode = 200, Message = "Add successful" });
             }
             catch (Exception ex)
             {
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
-
-
         }
+
+            [HttpPost("Register")]
+      
+            public async Task<IActionResult> Register(Register acc)
+            {
+                 
+                try
+                {
+                if (acc.ConfirmPassword != acc.Password)
+                {
+                   
+                    return StatusCode(409, new { StatusCode = 409, Message = "Confirm Password not correct password" });
+                }
+                var newAcc = new Account
+                    {
+                        Active = true ,
+                        Address = null,
+                        Avatar = "https://bloganchoi.com/wp-content/uploads/2022/02/avatar-trang-y-nghia.jpeg",
+                        CinemaId = null,
+                        Date = acc.Date,
+                        Email = acc.Email,
+                        FullName = acc.FullName,
+                        Gender = acc.Gender,
+                        RoleId = 2,
+                        IsLogged = true,
+                        Password = acc.Password,
+                        Phone = acc.Phone
+                    };
+                    await repositoryAccount.AddMember(newAcc);
+                    return Ok(new { StatusCode = 200, Message = "Register successful" });
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+                }
+
+            }
         [HttpPost("Login_Google")]
         public async Task<ActionResult> GetLoginGoogle(Token token)
         {
@@ -159,17 +194,17 @@ namespace CinemaSystem.Controllers
                 string avatar = jsonToken.Claims.First(claim => claim.Type == "picture").Value;
                 string name = jsonToken.Claims.First(claim => claim.Type == "name").Value;
                 var AccountList = await repositoryAccount.GetMembers();
-                var isExists =  AccountList.SingleOrDefault(x => x.Email == email);
-                 if(isExists == null)
+                var isExists = AccountList.SingleOrDefault(x => x.Email == email);
+                if (isExists == null)
                 {
                     var newAcc = new Account
                     {
                         Active = true,
-                        Avatar = avatar,       
+                        Avatar = avatar,
                         Email = email,
                         FullName = name,
                         RoleId = 3,
-                        IsLogged = true,
+                        IsLogged = false,
                     };
                     await repositoryAccount.AddMember(newAcc);
                     var member = AccountList.SingleOrDefault(x => x.Email == newAcc.Email);
@@ -201,6 +236,7 @@ namespace CinemaSystem.Controllers
             {
                 return BadRequest();
             }
+           
             try
             {
                 var Acc = new Account

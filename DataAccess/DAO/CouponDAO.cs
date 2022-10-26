@@ -84,9 +84,25 @@ namespace DataAccess.DAO
                 using (var context = new CinemaManagementContext())
                 {
 
+                    var p1 = await context.Coupons.FirstOrDefaultAsync(c => c.Id.Equals(m.Id));
 
-                    context.Entry<Coupon>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    await context.SaveChangesAsync();
+                    if (p1 == null)
+                    {
+
+                        context.Entry<Coupon>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        await context.SaveChangesAsync();
+
+                    }
+                    else
+                    {
+                        if (p1.Id == m.Id)
+                        {
+                            context.Entry<Coupon>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                        }
+
+                        throw new Exception("Coupon Code is Exits");
+                    }
 
                 }
             }

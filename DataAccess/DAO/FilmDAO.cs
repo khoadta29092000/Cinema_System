@@ -36,7 +36,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    films = await context.Films.ToListAsync();
+                    films = await context.Films.Include(x => x.TypeInFilms).ToListAsync();
 
                 }
                 return films;
@@ -88,10 +88,25 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
+                    var p1 = await context.Films.FirstOrDefaultAsync(c => c.Title.Equals(m.Title));
 
+                    if (p1 == null)
+                    {
 
-                    context.Entry<Film>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    await context.SaveChangesAsync();
+                        context.Entry<Film>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        await context.SaveChangesAsync();
+
+                    }
+                    else
+                    {
+                        if (p1.Title == m.Title)
+                        {
+                            context.Entry<Film>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                        }
+
+                        throw new Exception("Cinema Name is Exits");
+                    }
 
                 }
             }
@@ -147,7 +162,7 @@ namespace DataAccess.DAO
                 {
                     IEnumerable<Film> searchValues = await (from film in context.Films
                                                       where film.Title.ToLower().Contains(search.ToLower())
-                                                      select film).ToListAsync();
+                                                      select film).Include(x => x.TypeInFilms).ToListAsync();
                     searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                     searchResult = searchValues.ToList();
                 }

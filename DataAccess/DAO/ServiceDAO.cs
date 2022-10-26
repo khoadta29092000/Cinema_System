@@ -87,11 +87,25 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
+                    var p1 = await context.Services.FirstOrDefaultAsync(c => c.Title.Equals(m.Title));
 
+                    if (p1 == null)
+                    {
 
-                    context.Entry<Service>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    await context.SaveChangesAsync();
+                        context.Entry<Service>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        await context.SaveChangesAsync();
 
+                    }
+                    else
+                    {
+                        if (p1.Title == m.Title)
+                        {
+                            context.Entry<Service>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                        }
+
+                        throw new Exception("Title is Exits");
+                    }
                 }
             }
             catch (Exception ex)

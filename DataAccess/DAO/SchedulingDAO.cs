@@ -53,8 +53,8 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    var p1 = await context.Schedulings.FirstOrDefaultAsync(c => c.CinemaId == m.CinemaId && c.RoomId == m.RoomId
-                    && ((c.StartTime >= m.StartTime || m.StartTime <= c.EndTime) || (c.StartTime >= m.EndTime || m.EndTime <= c.EndTime)));
+                    var p1 = await context.Schedulings.FirstOrDefaultAsync(c => c.CinemaId == m.CinemaId && c.RoomId == m.RoomId && c.Date == m.Date
+                    && ((c.StartTime >= m.StartTime || m.StartTime <= c.EndTime) || (c.StartTime >= m.EndTime || m.EndTime <= c.EndTime) ));
                     var p2 = await context.Schedulings.FirstOrDefaultAsync(c => c.Id.Equals(m.Id));
                     if (p1 == null)
                     {
@@ -86,10 +86,25 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
+                    var p1 = await context.Schedulings.FirstOrDefaultAsync(c => c.CinemaId == m.CinemaId && c.RoomId == m.RoomId && c.Date == m.Date
+                                        && ((c.StartTime >= m.StartTime || m.StartTime <= c.EndTime) || (c.StartTime >= m.EndTime || m.EndTime <= c.EndTime)));
+                 
+                    if (p1 == null)
+                    {
 
+                        context.Entry<Scheduling>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        await context.SaveChangesAsync();
 
-                    context.Entry<Scheduling>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    await context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        if (p1.StartTime == m.StartTime && p1.Id == m.Id)
+                        {
+                            context.Entry<Scheduling>(m).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                            await context.SaveChangesAsync();
+                        }
+                        throw new Exception("Scheduling is Exist in Cinema");
+                    }
 
                 }
             }

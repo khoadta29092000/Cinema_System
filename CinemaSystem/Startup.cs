@@ -37,8 +37,12 @@ namespace CinemaSystem
                  .AllowAnyHeader());
             });
 
-            services.AddControllers();
-      
+            services.AddControllers()
+  .AddNewtonsoftJson(options =>
+      options.SerializerSettings.ReferenceLoopHandling =
+        Newtonsoft.Json.ReferenceLoopHandling.Ignore
+   );
+
             services.AddSingleton<IAccountRepository, AccountRepository>();
             services.AddSingleton<ITypeRepository, TypeRepository>();
             services.AddSingleton<ICinemaRepository, CinemaRepository>();
@@ -57,7 +61,7 @@ namespace CinemaSystem
             services.AddSingleton<IBillRepository, BillRepository>();
             services.AddSingleton<IServiceInBillRepository, ServiceInBillRepository>();
 
-            services.AddControllers().AddNewtonsoftJson();
+         
 
             var secretKey = Configuration["Appsettings:SecretKey"];
             var secretKeyBytes = Encoding.UTF8.GetBytes(secretKey);

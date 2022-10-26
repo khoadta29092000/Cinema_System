@@ -23,12 +23,12 @@ namespace CinemaSystem.Controllers
 
         }
         [HttpGet]
-        public async Task<IActionResult> GetAll(string search, int page, int pageSize)
+        public async Task<IActionResult> GetAll(string search, int CinemaId, int page, int pageSize)
         {
 
             try
             {
-                var TypeList = await roomRepository.SearchByTitle(search, page, pageSize);
+                var TypeList = await roomRepository.SearchByTitle(search, CinemaId, page, pageSize);
                 var Count = TypeList.Count();
                 return Ok(new { StatusCode = 200, Message = "Load successful", data = TypeList, Count });
 
@@ -121,7 +121,7 @@ namespace CinemaSystem.Controllers
                 }
                 else
                 {
-                    Room room = await roomRepository.GetRoomById(id);
+                    RoomDTO room = await roomRepository.GetRoomById(id);
                     if (room == null)
                     {
                         return Ok(new { StatusCode = 400, Message = "Id not Exists" });

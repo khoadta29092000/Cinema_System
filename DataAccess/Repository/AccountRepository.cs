@@ -18,7 +18,7 @@ namespace DataAccess.Repository
         public  Task UpdateActive(int AccountID, bool? active) => AccountDAO.Instance.UpdateActive(AccountID, active);
         public  Task AddMember(Account m) => AccountDAO.AddAccount(m);
         public  Task UpdateMember(Account m) => AccountDAO.UpdateAccount(m);
-        public  Task<List<Account>> SearchByEmail(string search, int page, int pageSize) => AccountDAO.Instance.SearchByEmail(search, page, pageSize);
+        public  Task<List<Account>> SearchByEmail(string search,int CinemaId , int page, int pageSize) => AccountDAO.Instance.SearchByEmail(search, CinemaId, page, pageSize);
        
     }
 }
