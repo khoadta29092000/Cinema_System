@@ -9,14 +9,14 @@ namespace DataAccess.Repository
 {
     public interface IRoomRepository
     {
-        Task<List<Room>> GetRooms();
+        Task<List<RoomDTO>> GetRooms();
 
-        Task<Room> GetRoomById(int RoomId);
+        Task<RoomDTO> GetRoomById(int RoomId);
         Task UpdateActive(int RoomId, bool? active);
         Task DeleteRoom(int m);
 
         Task UpdateRoom(Room m);
         Task AddRoom(Room m);
-        Task<List<Room>> SearchByTitle(string search,int RoleId, int page, int pageSize);
+        Task<List<RoomDTO>> SearchByTitle(string search,int RoleId, int page, int pageSize);
     }
 }

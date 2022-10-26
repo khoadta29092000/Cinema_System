@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
     <_PublishTargetUrl>ftp://198.37.116.25/www.CinemaSystem2.somee.com</_PublishTargetUrl>
-    <History>True|2022-10-24T07:38:38.9610368Z;</History>
+    <History>False|2022-10-25T06:56:50.6152127Z;False|2022-10-25T13:53:39.1560648+07:00;True|2022-10-24T14:38:38.9610368+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -30,16 +30,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/24/2022 14:29:52</publishTime>
     </File>
     <File Include="CinemaSystem.deps.json">
-      <publishTime>10/24/2022 14:33:05</publishTime>
+      <publishTime>10/25/2022 13:56:13</publishTime>
     </File>
     <File Include="CinemaSystem.dll">
       <publishTime>10/24/2022 14:33:04</publishTime>
     </File>
     <File Include="CinemaSystem.exe">
-      <publishTime>10/24/2022 14:33:04</publishTime>
+      <publishTime>10/25/2022 13:56:12</publishTime>
     </File>
     <File Include="CinemaSystem.pdb">
-      <publishTime>10/24/2022 14:33:04</publishTime>
+      <publishTime>10/25/2022 13:56:12</publishTime>
     </File>
     <File Include="CinemaSystem.runtimeconfig.json">
       <publishTime>10/20/2022 14:09:15</publishTime>
@@ -48,7 +48,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/24/2022 14:20:20</publishTime>
     </File>
     <File Include="DataAccess.pdb">
-      <publishTime>10/24/2022 14:20:20</publishTime>
+      <publishTime>10/25/2022 13:50:01</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
       <publishTime>10/27/2020 05:59:54</publishTime>
@@ -207,7 +207,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/02/2013 03:54:24</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/24/2022 14:33:36</publishTime>
+      <publishTime>10/25/2022 13:52:47</publishTime>
     </File>
   </ItemGroup>
 </Project>

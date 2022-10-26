@@ -41,7 +41,7 @@ namespace BusinessObject.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("workstation id=CinemaSystem.mssql.somee.com;packet size=4096;user id=tiensidiien_SQLLogin_1;pwd=uaeovuatgl;data source=CinemaSystem.mssql.somee.com;persist security info=False;initial catalog=CinemaSystem; Encrypt=false;TrustServerCertificate=true"
+                optionsBuilder.UseSqlServer("workstation id=CinemaManagement.mssql.somee.com;packet size=4096;user id=tiensidien1234_SQLLogin_1;pwd=nv6a752x2u;data source=CinemaManagement.mssql.somee.com;persist security info=False;initial catalog=CinemaManagement; Encrypt=false;TrustServerCertificate=true"
                 //optionsBuilder.UseSqlServer("Server=desktop-5fopul4.\\SQLEXPRESS;TrustServerCertificate=True;Database=Cinema Management;Uid=sa;password=1;"
                 );
             }
@@ -261,6 +261,8 @@ namespace BusinessObject.Models
                 entity.ToTable("Service");
 
                 entity.Property(e => e.Description).HasMaxLength(4000);
+
+                entity.Property(e => e.Image).HasMaxLength(4000);
 
                 entity.Property(e => e.Title).HasMaxLength(50);
             });

@@ -36,7 +36,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    films = await context.Films.ToListAsync();
+                    films = await context.Films.Include(x => x.TypeInFilms).ToListAsync();
 
                 }
                 return films;
@@ -162,7 +162,7 @@ namespace DataAccess.DAO
                 {
                     IEnumerable<Film> searchValues = await (from film in context.Films
                                                       where film.Title.ToLower().Contains(search.ToLower())
-                                                      select film).ToListAsync();
+                                                      select film).Include(x => x.TypeInFilms).ToListAsync();
                     searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                     searchResult = searchValues.ToList();
                 }

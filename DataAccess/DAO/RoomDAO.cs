@@ -27,9 +27,9 @@ namespace DataAccess.DAO
                 }
             }
         }
-        public static async Task<List<Room>> GetRooms()
+        public static async Task<List<RoomDTO>> GetRooms()
         {
-            var rooms = new List<Room>();
+            var rooms = new List<RoomDTO>();
 
             try
             {
@@ -37,17 +37,19 @@ namespace DataAccess.DAO
                 using (var context = new CinemaManagementContext())
                 {
                     rooms = await (from room in context.Rooms
-                                   join cinema in context.Cinemas on room.CinemaId equals cinema.Id into t
-                                   from cinema in t.DefaultIfEmpty()
-                                   select new Room
-                                   {
-                                       Id = room.Id,
-                                       CinemaId = room.CinemaId,
-                                       Title = room.Title,
-                                       Description = room.Description,
-                                       Active = room.Active
-                                    }).ToListAsync();
-
+                                     join cinema in context.Cinemas on room.CinemaId equals cinema.Id into t
+                                     from cinema in t.DefaultIfEmpty()
+                                     select new RoomDTO
+                                     {
+                                         Id = room.Id,
+                                         Cinema = cinema.Name,
+                                         CinemaId = room.CinemaId,
+                                         Title = room.Title,
+                                         Description = room.Description,
+                                         Active = room.Active
+                                     }).ToListAsync();
+                       
+                    //rooms = await context.Rooms.ToListAsync();
                 }
                 return rooms;
             }
@@ -57,6 +59,7 @@ namespace DataAccess.DAO
             }
 
         }
+       
 
         public static async Task AddRoom(Room m)
         {
@@ -150,10 +153,10 @@ namespace DataAccess.DAO
                 throw new Exception(e.Message);
             }
         }
-        public async Task<List<Room>> SearchByTitle(string search,int CinemaId, int page, int pageSize)
+        public async Task<List<RoomDTO>> SearchByTitle(string search,int CinemaId, int page, int pageSize)
         {
-            List<Room> searchResult = null;
-            IEnumerable<Room> searchValues = await GetRooms();
+            List<RoomDTO> searchResult = null;
+            IEnumerable<RoomDTO> searchValues = await GetRooms();
             if (page == 0 || pageSize == 0)
             {
                 page = 1;
@@ -176,9 +179,17 @@ namespace DataAccess.DAO
                 using (var context = new CinemaManagementContext())
                 {
                     searchValues = await (from room in context.Rooms
-                                                            where room.Title.ToLower().Contains(search.ToLower())
-                                                             select room).ToListAsync();
-                  
+                                          join cinema in context.Cinemas on room.CinemaId equals cinema.Id into t
+                                          from cinema in t.DefaultIfEmpty()
+                                          where room.Title.Equals(search.ToLower())
+                                          select new RoomDTO
+                                          {
+                                              Id = room.Id,
+                                              Cinema = cinema.Name,
+                                              Title = room.Title,
+                                              Description = room.Description,
+                                              Active = room.Active
+                                          }).ToListAsync();
                     if (CinemaId != 0)
                     {
                         searchValues = searchValues.Where(c => c.CinemaId == CinemaId).ToList();
@@ -191,11 +202,11 @@ namespace DataAccess.DAO
           
             return searchResult;
         }
-        public async Task<Room> GetRoomById(int RoomId)
+        public async Task<RoomDTO> GetRoomById(int RoomId)
         {
 
-            IEnumerable<Room> rooms = await GetRooms();
-            Room room = rooms.SingleOrDefault(mb => mb.Id == RoomId);
+            IEnumerable<RoomDTO> rooms = await GetRooms();
+            RoomDTO room = rooms.SingleOrDefault(mb => mb.Id == RoomId);
             return room;
         }
         public async Task UpdateActive(int RoomId, bool? acticve)

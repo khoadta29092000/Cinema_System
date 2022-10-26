@@ -67,8 +67,8 @@ namespace CinemaSystem.Controllers
                     Title = service.Title,
                     Description = service.Description,
                     Price = service.Price,
-                    Quantity = service.Quantity
-                    
+                    Quantity = service.Quantity,
+                    Image = service.Image
                 };
                 await serviceRepository.AddService(newService);
                 return Ok(new { StatusCode = 200, Message = "Add successful" });
@@ -98,7 +98,8 @@ namespace CinemaSystem.Controllers
                     Description = service.Description,
                     Price = service.Price,
                     Quantity = service.Quantity,
-                    Id = service.Id
+                    Id = service.Id,
+                    Image = service.Image
                 };
                 await serviceRepository.UpdateService(updateService);
                 return Ok(new { StatusCode = 200, Message = "Update successful" });

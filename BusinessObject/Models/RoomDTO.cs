@@ -5,21 +5,17 @@ using System.Collections.Generic;
 
 namespace BusinessObject.Models
 {
-    public partial class Service
+    public partial class RoomDTO
     {
-        public Service()
-        {
-            ServiceInCinemas = new HashSet<ServiceInCinema>();
-        }
+        
 
         public int Id { get; set; }
+        public string Cinema { get; set; }
+        public int? CinemaId { get; set; }
         public string Title { get; set; }
-        public int? Price { get; set; }
-        public int? Quantity { get; set; }
         public string Description { get; set; }
         public bool? Active { get; set; }
-        public string Image { get; set; }
 
-        public virtual ICollection<ServiceInCinema> ServiceInCinemas { get; set; }
+      
     }
 }

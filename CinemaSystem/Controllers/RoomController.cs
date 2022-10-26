@@ -121,7 +121,7 @@ namespace CinemaSystem.Controllers
                 }
                 else
                 {
-                    Room room = await roomRepository.GetRoomById(id);
+                    RoomDTO room = await roomRepository.GetRoomById(id);
                     if (room == null)
                     {
                         return Ok(new { StatusCode = 400, Message = "Id not Exists" });
