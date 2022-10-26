@@ -18,7 +18,7 @@ namespace DataAccess.Repository
         public Task UpdateActive(int SchedulingId, bool? active) => SchedulingDAO.Instance.UpdateActive(SchedulingId, active);
         public Task AddScheduling(Scheduling m) => SchedulingDAO.AddScheduling(m);
         public Task UpdateScheduling(Scheduling m) => SchedulingDAO.UpdateScheduling(m);
-        public Task<List<Scheduling>> FilterScheduling(DateTime Date, int RoomId, int CinemaId, int FilmId, int page, int pageSize)
-        => SchedulingDAO.Instance.FilterScheduling(Date, RoomId, CinemaId, FilmId, page, pageSize);
+        public Task<List<Scheduling>> FilterScheduling(DateTime StartDate, DateTime EndDate, int RoomId, int CinemaId, int FilmId, int page, int pageSize)
+        => SchedulingDAO.Instance.FilterScheduling(StartDate, EndDate, RoomId, CinemaId, FilmId, page, pageSize);
     }
 }

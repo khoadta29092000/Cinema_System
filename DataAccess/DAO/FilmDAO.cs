@@ -36,7 +36,7 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    films = await context.Films.Include(x=> x.FilmInCinemas).ToListAsync();
+                    films = await context.Films.ToListAsync();
 
                 }
                 return films;

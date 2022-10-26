@@ -25,12 +25,12 @@ namespace CinemaSystem.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(DateTime Date, int RoomId, int CinemaId, int FilmId, int page, int pageSize)
+        public async Task<IActionResult> GetAll(DateTime Startdate, DateTime EndDate, int RoomId, int CinemaId, int FilmId, int page, int pageSize)
         {
 
             try
             {
-                var TypeList = await schedulingRepository.FilterScheduling(Date, RoomId, CinemaId, FilmId, page, pageSize);
+                var TypeList = await schedulingRepository.FilterScheduling(Startdate, EndDate, RoomId, CinemaId, FilmId, page, pageSize);
                 var Count = TypeList.Count();
                 return Ok(new { StatusCode = 200, Message = "Load successful", data = TypeList, Count });
 

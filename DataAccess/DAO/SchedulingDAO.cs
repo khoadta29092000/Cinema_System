@@ -125,12 +125,11 @@ namespace DataAccess.DAO
                 throw new Exception(e.Message);
             }
         }
-        public async Task<List<Scheduling>> FilterScheduling(DateTime Date,int RoomId,int CinemaId,int FilmId, int page, int pageSize)
+        public async Task<List<Scheduling>> FilterScheduling(DateTime StartDate, DateTime EndDate,int RoomId,int CinemaId,int FilmId, int page, int pageSize)
         {
             try
             {
                 DateTime date1 = new DateTime(0001, 1, 1, 0, 0, 0);
-                DateTime date2 = Date;
                 List<Scheduling> searchResult = null;
                 IEnumerable<Scheduling> searchValues = await GetSchedulings();
                 if (page == 0 || pageSize == 0)
@@ -138,9 +137,16 @@ namespace DataAccess.DAO
                     page = 1;
                     pageSize = 1000;
                 }
-                if (DateTime.Compare(date1, date2) != 0)
-                {                
-                    searchValues = searchValues.Where(c => c.Date == Date);
+                if (!(DateTime.Compare(StartDate, EndDate) == 0 && DateTime.Compare(StartDate, date1) == 0))
+                {
+                    if (StartDate <= EndDate)
+                    {
+                        searchValues = searchValues.Where(c => c.Date >= StartDate && c.Date <= EndDate);
+                    }
+                    else
+                    {
+                        searchValues = searchValues.Where(c => c.Date >= EndDate && c.Date <= StartDate);
+                    }
                 }
                 if (RoomId != 0)
                 {
@@ -154,6 +160,7 @@ namespace DataAccess.DAO
                 {
                     searchValues = searchValues.Where(c => c.FilmId == FilmId);
                 }
+                
                 searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                 searchResult = searchValues.ToList();
                 return searchResult;

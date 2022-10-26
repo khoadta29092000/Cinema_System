@@ -17,6 +17,6 @@ namespace DataAccess.Repository
 
         Task UpdateScheduling(Scheduling m);
         Task AddScheduling(Scheduling m);
-        Task<List<Scheduling>> FilterScheduling(DateTime Date, int RoomId, int CinemaId, int FilmId, int page, int pageSize);
+        Task<List<Scheduling>> FilterScheduling(DateTime StartDate, DateTime EndDate, int RoomId, int CinemaId, int FilmId, int page, int pageSize);
     }
 }

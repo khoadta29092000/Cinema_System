@@ -43,3 +43,18 @@ C:\Users\DELL\Desktop\Cinema\Cinema_System\DataAccess\obj\Debug\net5.0\DataAcces
 C:\Users\DELL\Desktop\Cinema\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.dll
 C:\Users\DELL\Desktop\Cinema\Cinema_System\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\Users\DELL\Desktop\Cinema\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.pdb
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\bin\Debug\net5.0\DataAccess.deps.json
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\bin\Debug\net5.0\DataAccess.dll
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\bin\Debug\net5.0\DataAccess.pdb
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\bin\Debug\net5.0\BusinessObject.dll
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\bin\Debug\net5.0\BusinessObject.pdb
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.csproj.AssemblyReference.cache
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CopyComplete
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.dll
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\refint\DataAccess.dll
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.pdb
+B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
