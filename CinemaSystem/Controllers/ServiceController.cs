@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
+using CinemaSystem.ViewModel;
+
 namespace CinemaSystem.Controllers
 {
     [Route("api/[controller]")]
@@ -82,33 +84,38 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "1")]
-        public async Task<IActionResult> update(int id,Service service)
+        //[Authorize(Roles = "1")]
+        public async Task<IActionResult> update(int id,ServiceVM service)
         {
-            if (id != service.Id)
+            var dbContext = new CinemaManagementContext();
+            if (id != service.id)
             {
                 return BadRequest();
             }
             try
             {
-                var updateService = new Service
+                var serviceFromDB = dbContext.Services.Find(id);
+                //var serviceFromDB = await serviceRepository.GetServiceById(id);
+                if (serviceFromDB != null)
                 {
-                    Active = service.Active,
-                    Title = service.Title,
-                    Description = service.Description,
-                    Price = service.Price,
-                    Quantity = service.Quantity,
-                    Id = service.Id,
-                    Image = service.Image
-                };
-                await serviceRepository.UpdateService(updateService);
-                return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    serviceFromDB.Title = service.title;
+                    serviceFromDB.Price = service.price;
+                    serviceFromDB.Quantity = service.quantity;
+                    serviceFromDB.Description = service.description;
+                    serviceFromDB.Active = service.active;
+
+                    await dbContext.SaveChangesAsync();
+
+                    return Ok(dbContext.Services.Find(id));
+                }
+
+                return NotFound();
+                  
             }
             catch (Exception ex)
             {
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
-
 
         }
 
