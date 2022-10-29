@@ -58,7 +58,7 @@ namespace CinemaSystem.Controllers
             }
         }
 
-        [HttpGet("AllFilmInCinemaToday")]
+        [HttpGet("AllFilmInCinemaToday/{CinemaId}")]
         public async Task<IActionResult> GetAllFilmInCinemaToday(int CinemaId, int page, int pageSize)
         {
             var filmInCinemaFromDB = new List<FilmInCinema>();
@@ -84,7 +84,7 @@ namespace CinemaSystem.Controllers
             }
         }
 
-        [HttpGet("AllFilmInCinemaComingSoon")]
+        [HttpGet("AllFilmInCinemaComingSoon/{CinemaId}")]
         public async Task<IActionResult> GetAllFilmInCinemaComingSoon(int CinemaId, int page, int pageSize)
         {
             var filmInCinemaFromDB = new List<FilmInCinema>();
