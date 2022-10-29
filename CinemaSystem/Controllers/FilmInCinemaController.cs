@@ -55,6 +55,30 @@ namespace CinemaSystem.Controllers
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
         }
+
+        [HttpGet("AllFilmInCinemaToday")]
+        public async Task<IActionResult> GetAllFilmInCinemaToday(int CinemaId, int page, int pageSize)
+        {
+            var dbContext = new CinemaManagementContext();
+            try
+            {
+                
+                var TypeList = await filmInCinemaRepository.GetAllFilmInCinema(CinemaId, page, pageSize);
+                var listFilm = dbContext.FilmInCinemas
+                    .Where(x => x.CinemaId == CinemaId).ToList()
+                    .Where(f => f.Startime.Value.Date <= DateTime.Now.Date && DateTime.Now.Date <= f.Endtime.Value.Date).ToList()
+                    .Select(fic => { fic.Film = dbContext.Films.Find(fic.FilmId); return fic; }).ToList();
+                
+                if (listFilm.Count <= 0) return Ok("No Film for today");
+                return Ok(listFilm);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+        }
+
         [HttpGet("AllCinemaHaveFilm")]
         public async Task<IActionResult> GetAllCinemaHaveFilm(int FilmId, int page, int pageSize)
         {
