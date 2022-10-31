@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
+using CinemaSystem.ViewModel;
 
 namespace CinemaSystem.Controllers
 {
@@ -86,7 +87,7 @@ namespace CinemaSystem.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "1")]
-        public async Task<IActionResult> update(int id,Cinema cinema)
+        public async Task<IActionResult> update(int id,CinemaVM cinema)
         {
             if (id != cinema.Id)
             {
@@ -94,25 +95,39 @@ namespace CinemaSystem.Controllers
             }
             try
             {
-                var updateCinema = new Cinema
+                using (var dbContext = new CinemaManagementContext())
                 {
-                    Active = cinema.Active,
-                    Address = cinema.Address,
-                    Name = cinema.Name,
-                    Description = cinema.Description,
-                    Image = cinema.Image,
-                    LocationId = cinema.LocationId,
-                    Id = cinema.Id
-                };
-                await cinemaRepository.UpdateCinema(updateCinema);
-                return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    
+                    bool isDuplicateName = dbContext.Cinemas
+                        .Where(cnm => cnm.Id != cinema.Id)
+                        .Any(cnm => String.Compare(cnm.Name, cinema.Name) == 0);
+                    if (isDuplicateName) throw new Exception("Duplicate Name Of Cinema");
+
+                    var UnUpdatedCinema = dbContext.Cinemas.Find(cinema.Id);
+                    if (UnUpdatedCinema != null)
+                    {
+
+                        UnUpdatedCinema.Active = cinema.Active;
+                        UnUpdatedCinema.Address = cinema.Address;
+                        UnUpdatedCinema.Name = cinema.Name;
+                        UnUpdatedCinema.Description = cinema.Description;
+                        UnUpdatedCinema.Image = cinema.Image;
+                        UnUpdatedCinema.LocationId = cinema.LocationId;
+                        UnUpdatedCinema.Id = cinema.Id;
+
+                        await dbContext.SaveChangesAsync();
+
+                        return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    } else
+                    {
+                        throw new Exception("Cinema Id Not Found");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
-
-
         }
 
         [HttpPut("UpdateActive")]

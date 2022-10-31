@@ -106,10 +106,10 @@ namespace CinemaSystem.Controllers
 
                     await dbContext.SaveChangesAsync();
 
-                    return Ok(dbContext.Services.Find(id));
+                    return Ok(new { StatusCode = 200, Message = "Update successful" });
                 }
 
-                return NotFound();
+                throw new Exception("Service Id Not Found");
                   
             }
             catch (Exception ex)
