@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dan\\CinemaSystem\\CinemaSystem.csproj": {}
+    "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj": {}
   },
   "projects": {
-    "D:\\dan\\BusinessObject\\BusinessObject.csproj": {
+    "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dan\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\dan\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "D:\\dan\\BusinessObject\\obj\\",
+        "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\Duong Mai Hoang\\.nuget\\packages\\",
+        "outputPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Duong Mai Hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -86,8 +81,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -96,25 +90,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\dan\\CinemaSystem\\CinemaSystem.csproj": {
+    "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dan\\CinemaSystem\\CinemaSystem.csproj",
+        "projectUniqueName": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj",
         "projectName": "CinemaSystem",
-        "projectPath": "D:\\dan\\CinemaSystem\\CinemaSystem.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "D:\\dan\\CinemaSystem\\obj\\",
+        "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj",
+        "packagesPath": "C:\\Users\\Duong Mai Hoang\\.nuget\\packages\\",
+        "outputPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\CinemaSystem\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Duong Mai Hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -122,18 +112,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\dan\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\dan\\BusinessObject\\BusinessObject.csproj"
+              "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
               },
-              "D:\\dan\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\dan\\DataAccess\\DataAccess.csproj"
+              "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -159,8 +148,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -172,25 +160,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\dan\\DataAccess\\DataAccess.csproj": {
+    "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dan\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\dan\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "D:\\dan\\DataAccess\\obj\\",
+        "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Duong Mai Hoang\\.nuget\\packages\\",
+        "outputPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Duong Mai Hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -198,15 +182,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\dan\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\dan\\BusinessObject\\BusinessObject.csproj"
+              "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -226,8 +209,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -236,7 +218,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
