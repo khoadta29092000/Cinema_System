@@ -81,7 +81,7 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         public async Task<IActionResult> update(int id, SeatVM seat)
         {
             if (id != seat.Id)
@@ -113,7 +113,6 @@ namespace CinemaSystem.Controllers
                     {
                         throw new Exception("Room Id Not Found");
                     }
-
                 }
             }
             catch (Exception ex)

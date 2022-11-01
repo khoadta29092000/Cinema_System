@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
-
+using CinemaSystem.ViewModel;
 
 namespace CinemaSystem.Controllers
 {
@@ -83,7 +83,7 @@ namespace CinemaSystem.Controllers
       
         [HttpPut("{id}")]
         [Authorize(Roles = "1")]
-        public async Task<IActionResult> update(int id,Types type)
+        public async Task<IActionResult> update(int id,TypeVM type)
         {
             if (id != type.Id)
             {
@@ -91,15 +91,30 @@ namespace CinemaSystem.Controllers
             }
             try
             {
-                var updateType = new Types
+                using (var dbContext = new CinemaManagementContext())
                 {
-                    Active = type.Active,
-                    Id = type.Id,
-                    Title = type.Title,
-                    Description = type.Description
-                };
-                await typeRepository.UpdateType(updateType);
-                return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    bool isDuplicateName = dbContext.Types
+                        .Where(cnm => cnm.Id != type.Id)
+                        .Any(cnm => String.Compare(cnm.Title, type.Title) == 0);
+                    if (isDuplicateName) throw new Exception("Duplicate Name Of room");
+
+                    var UnUpdatedModel = dbContext.Types.Find(type.Id);
+                    if (UnUpdatedModel != null)
+                    {
+                        UnUpdatedModel.Active = type.Active;
+                        UnUpdatedModel.Id = type.Id;
+                        UnUpdatedModel.Title = type.Title;
+                        UnUpdatedModel.Description = type.Description;
+
+                        await dbContext.SaveChangesAsync();
+
+                        return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    }
+                    else
+                    {
+                        throw new Exception("Type Id Not Found");
+                    }
+                }
             }
             catch (Exception ex)
             {

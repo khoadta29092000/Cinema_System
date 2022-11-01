@@ -76,7 +76,6 @@ namespace CinemaSystem.Controllers
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
 
-
         }
 
         [HttpPut("{id}")]
@@ -109,7 +108,6 @@ namespace CinemaSystem.Controllers
                         await dbContext.SaveChangesAsync();
 
                         return Ok(new { StatusCode = 200, Message = "Update successful" });
-
                     }
                     else
                     {

@@ -102,7 +102,7 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         public async Task<IActionResult> update(int id, FilmVM film)
         {
             if (id != film.Id)
@@ -123,49 +123,44 @@ namespace CinemaSystem.Controllers
                     {
                         //if (UnUpdatedModel.TypeInFilms.ToList().Count > 0)
                         //{
-                        //    var filmId = UnUpdatedModel.Id;
-                        //    var needToRemove = UnUpdatedModel.TypeInFilms.Select(tif => tif.TypeId)
-                        //        .Where(tid => !film.TypeInFilms.Contains(tid)).ToList();
-                        //    foreach (int rmt in needToRemove) {
-                        //        await typeInFilmRepository.DeleteTypeInFilm(rmt, filmId); 
-                        //    }
+                        //    UnUpdatedModel.TypeInFilms.Select(tif => tif.TypeId)
+                        //        .Where(tid => !film.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
+                        //        .Select(rmt => dbContext.TypeInFilms
+                        //            .Remove(new TypeInFilm() 
+                        //            { TypeId = rmt, 
+                        //                FilmId = UnUpdatedModel.Id 
+                        //            }));
 
-                        //    var needToCreate = film.TypeInFilms
-                        //        .Where(tid => !UnUpdatedModel.TypeInFilms.Select(obj => obj.TypeId).Contains(tid)).ToList();
-                        //    foreach (int nta in needToCreate) 
-                        //    {
-                        //        await typeInFilmRepository.AddTypeInFilm(new TypeInFilm
-                        //        {
-                        //            TypeId = nta,
-                        //            FilmId = filmId
-                        //        });
-                        //    }
+                        //    film.TypeInFilms.Select(tif => tif.TypeId)
+                        //        .Where(tid => !UnUpdatedModel.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
+                        //        .Select(rmt => dbContext.TypeInFilms
+                        //            .Add(new TypeInFilm()
+                        //            {
+                        //                TypeId = rmt,
+                        //                FilmId = UnUpdatedModel.Id
+                        //            }));
+                        //}   
 
-                        //}
+                        //UnUpdatedModel.Active = film.Active;
+                        //UnUpdatedModel.Title = film.Title;
+                        //UnUpdatedModel.Description = film.Description;
+                        //UnUpdatedModel.Actor = film.Actor;
+                        //UnUpdatedModel.Director = film.Director;
+                        //UnUpdatedModel.Language = film.Language;
+                        //UnUpdatedModel.Rated = film.Rated;
+                        //UnUpdatedModel.Time = film.Time;
+                        //UnUpdatedModel.Trailer = film.Trailer;
+                        //UnUpdatedModel.Id = film.Id;
+                        //UnUpdatedModel.Image = film.Image;
+                        //UnUpdatedModel.TypeInFilms = film.TypeInFilms;
 
-
-                        UnUpdatedModel.Active = film.Active;
-                        UnUpdatedModel.Title = film.Title;
-                        UnUpdatedModel.Description = film.Description;
-                        UnUpdatedModel.Actor = film.Actor;
-                        UnUpdatedModel.Director = film.Director;
-                        UnUpdatedModel.Language = film.Language;
-                        UnUpdatedModel.Rated = film.Rated;
-                        UnUpdatedModel.Time = film.Time;
-                        UnUpdatedModel.Trailer = film.Trailer;
-                        UnUpdatedModel.Id = film.Id;
-                        UnUpdatedModel.Image = film.Image;
-                        UnUpdatedModel.TypeInFilms = dbContext.TypeInFilms.Where(tif => tif.FilmId == film.Id && tif.TypeId == 2).ToList();
-
-                        await dbContext.SaveChangesAsync();
-                        
+                        //await dbContext.SaveChangesAsync();
                         return Ok(new { StatusCode = 200, Message = "Update successful" });
                     }
                     else
                     {
                         throw new Exception("Film Id Not Found");
                     }
-
                 }
             }
             catch (Exception ex)

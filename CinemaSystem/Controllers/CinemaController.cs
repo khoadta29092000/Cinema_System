@@ -86,7 +86,7 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         public async Task<IActionResult> update(int id,CinemaVM cinema)
         {
             if (id != cinema.Id)
@@ -106,7 +106,6 @@ namespace CinemaSystem.Controllers
                     var UnUpdatedCinema = dbContext.Cinemas.Find(cinema.Id);
                     if (UnUpdatedCinema != null)
                     {
-
                         UnUpdatedCinema.Active = cinema.Active;
                         UnUpdatedCinema.Address = cinema.Address;
                         UnUpdatedCinema.Name = cinema.Name;

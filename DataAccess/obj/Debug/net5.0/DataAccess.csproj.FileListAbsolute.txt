@@ -58,18 +58,3 @@ B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\Da
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\refint\DataAccess.dll
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\DataAccess.pdb
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
-D:\dan\DataAccess\bin\Debug\net5.0\DataAccess.deps.json
-D:\dan\DataAccess\bin\Debug\net5.0\DataAccess.dll
-D:\dan\DataAccess\bin\Debug\net5.0\DataAccess.pdb
-D:\dan\DataAccess\bin\Debug\net5.0\BusinessObject.dll
-D:\dan\DataAccess\bin\Debug\net5.0\BusinessObject.pdb
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.csproj.AssemblyReference.cache
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CopyComplete
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.dll
-D:\dan\DataAccess\obj\Debug\net5.0\refint\DataAccess.dll
-D:\dan\DataAccess\obj\Debug\net5.0\DataAccess.pdb
-D:\dan\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
