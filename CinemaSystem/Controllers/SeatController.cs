@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
+using CinemaSystem.ViewModel;
+
 namespace CinemaSystem.Controllers
 {
     [Route("api/[controller]")]
@@ -80,7 +82,7 @@ namespace CinemaSystem.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "1")]
-        public async Task<IActionResult> update(int id, Seat seat)
+        public async Task<IActionResult> update(int id, SeatVM seat)
         {
             if (id != seat.Id)
             {
@@ -88,16 +90,31 @@ namespace CinemaSystem.Controllers
             }
             try
             {
-                var updateSeat = new Seat
+                using (var dbContext = new CinemaManagementContext())
                 {
-                    Active = seat.Active,
-                    RoomId = seat.RoomId,
-                    Title = seat.Title,
-                    Description = seat.Description,
-                    Id = seat.Id
-                };
-                await seatRepository.UpdateSeat(updateSeat);
-                return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    bool isDuplicateName = dbContext.Seats
+                        .Where(cnm => cnm.Id != seat.Id)
+                        .Where(cnm => cnm.RoomId == seat.RoomId)
+                        .Any(cnm => String.Compare(cnm.Title, seat.Title) == 0);
+                    if (isDuplicateName) throw new Exception("Duplicate Name Of Seat");
+
+                    var UnUpdatedModel = dbContext.Seats.Find(seat.Id);
+                    if (UnUpdatedModel != null)
+                    {
+                        UnUpdatedModel.Active = seat.Active;
+                        UnUpdatedModel.RoomId = seat.RoomId;
+                        UnUpdatedModel.Title = seat.Title;
+                        UnUpdatedModel.Description = seat.Description;
+                        UnUpdatedModel.Id = seat.Id;
+
+                        await dbContext.SaveChangesAsync();
+                        return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    } else
+                    {
+                        throw new Exception("Room Id Not Found");
+                    }
+
+                }
             }
             catch (Exception ex)
             {

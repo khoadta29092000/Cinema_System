@@ -84,20 +84,18 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         public async Task<IActionResult> update(int id,ServiceVM service)
         {
-            var dbContext = new CinemaManagementContext();
             if (id != service.id)
             {
                 return BadRequest();
             }
             try
             {
-                var serviceFromDB = dbContext.Services.Find(id);
-                //var serviceFromDB = await serviceRepository.GetServiceById(id);
-                if (serviceFromDB != null)
+                using (var dbContext = new CinemaManagementContext())
                 {
+<<<<<<< HEAD
                     serviceFromDB.Title = service.title;
                     serviceFromDB.Price = service.price;
                     serviceFromDB.Quantity = service.quantity;
@@ -105,11 +103,28 @@ namespace CinemaSystem.Controllers
                     serviceFromDB.Active = service.active;
                     serviceFromDB.Image = service.image;
                     await dbContext.SaveChangesAsync();
+=======
+                    bool isDuplicateName = dbContext.Services
+                        .Where(cnm => cnm.Id != service.id)
+                        .Any(cnm => String.Compare(cnm.Title, service.title) == 0);
+                    if (isDuplicateName) throw new Exception("Duplicate Name Of Cinema");
+                    
+                    var serviceFromDB = dbContext.Services.Find(id);
+                    if (serviceFromDB != null)
+                    {
+                        serviceFromDB.Title = service.title;
+                        serviceFromDB.Price = service.price;
+                        serviceFromDB.Quantity = service.quantity;
+                        serviceFromDB.Description = service.description;
+                        serviceFromDB.Active = service.active;
 
-                    return Ok(dbContext.Services.Find(id));
+                        await dbContext.SaveChangesAsync();
+>>>>>>> d977f9db72462c5d20b2d40ccf2719cbac02d001
+
+                        return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    }
                 }
-
-                return NotFound();
+                throw new Exception("Service Id Not Found");
                   
             }
             catch (Exception ex)
