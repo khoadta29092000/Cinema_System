@@ -58,3 +58,18 @@ B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.pdb
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.genruntimeconfig.cache
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.0\ref\BusinessObject.dll
+D:\dan\BusinessObject\bin\Debug\net5.0\BusinessObject.deps.json
+D:\dan\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.json
+D:\dan\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.dev.json
+D:\dan\BusinessObject\bin\Debug\net5.0\BusinessObject.dll
+D:\dan\BusinessObject\bin\Debug\net5.0\BusinessObject.pdb
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.AssemblyReference.cache
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfoInputs.cache
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfo.cs
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.CoreCompileInputs.cache
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.dll
+D:\dan\BusinessObject\obj\Debug\net5.0\refint\BusinessObject.dll
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.pdb
+D:\dan\BusinessObject\obj\Debug\net5.0\BusinessObject.genruntimeconfig.cache
+D:\dan\BusinessObject\obj\Debug\net5.0\ref\BusinessObject.dll
