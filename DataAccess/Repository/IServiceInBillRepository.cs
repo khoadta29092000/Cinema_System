@@ -11,6 +11,7 @@ namespace DataAccess.Repository
     {
         Task<List<ServiceInBill>> GetServiceInBills();
 
+        Task<List<ServiceDTO>> GetServiceInBills1();
         Task<ServiceInBill> GetServiceInBillById(int ServiceInCinemaId, int BillId);
 
         Task DeleteServiceInBill(int ServiceInCinemaId, int BillId);

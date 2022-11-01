@@ -74,14 +74,7 @@ namespace CinemaSystem.Controllers
 
             try
             {
-                var tickedlist = await tickedRepository.GetTickeds();
-                foreach (TickedObject item in billObject.TickedObject)
-                {
-                    if (tickedlist.LastOrDefault(x => x.SeatId == item.SeatId) != null)
-                    {
-                        return StatusCode(409, new { StatusCode = 409, Message = "Seat có người mua r" });
-                    }
-                }
+              
 
                 Scheduling schedulingId = await schedulingRepository.GetSchedulingById(billObject.SchedulingId ?? default(int));
                 var ServiceInCinemaList = await serviceInCinemaRepository.SearchByCinemaId(schedulingId.CinemaId ?? default(int), 100, 0);

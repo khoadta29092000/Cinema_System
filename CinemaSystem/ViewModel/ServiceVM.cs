@@ -8,5 +8,6 @@
         public int quantity { get; set; }
         public string description { get; set; }
         public bool active { get; set; }
+        public string image { get; set; }
     }
 }

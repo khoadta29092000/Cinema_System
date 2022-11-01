@@ -19,7 +19,7 @@ namespace DataAccess.Repository
         Task<ServiceInCinema> GetServiceInCinemaById(int Id);
         Task<List<ServiceInCinema>> SearchByCinemaId(int CinemaId, int page, int pageSize);
         Task<List<ServiceInCinema>> SearchByServiceId(int ServiceId, int page, int pageSize);
-        Task<List<Service>> GetAllServiceInCinema(int CinemaId, int page, int pageSize);
+        Task<List<ServiceInCinemaDTO>> GetAllServiceInCinema(int CinemaId, int page, int pageSize);
         Task<List<Cinema>> GetAllCinemaHaveService(int ServiceId, int page, int pageSize);
     }
 }

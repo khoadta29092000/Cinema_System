@@ -28,6 +28,37 @@ namespace DataAccess.DAO
                 }
             }
         }
+        public static async Task<List<ServiceDTO>> GetServiceInBills1()
+        {
+            var serviceInBills = new List<ServiceDTO>();
+
+            try
+            {
+                using (var context = new CinemaManagementContext())
+                {
+                    serviceInBills = await (from serviceInBill in context.ServiceInBills
+                                            join serviceInCinema in context.ServiceInCinemas on serviceInBill.ServiceInCinemaId equals serviceInCinema.Id 
+                                            join service in context.Services on serviceInCinema.ServiceId equals service.Id into t
+                                            from service in t.DefaultIfEmpty()
+                                   select new ServiceDTO
+                                   {
+                                      BillId = serviceInBill.BillId,
+                                      Quantity = serviceInBill.Quantity,
+                                      ServiceInCinemaId = serviceInBill.ServiceInCinemaId,
+                                      ServiceName = service.Title
+                                      
+                                   }).ToListAsync();
+
+                    //rooms = await context.Rooms.ToListAsync();
+                }
+                return serviceInBills;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
         public static async Task<List<ServiceInBill>> GetServiceInBills()
         {
             var serviceInBills = new List<ServiceInBill>();
@@ -37,7 +68,6 @@ namespace DataAccess.DAO
                 using (var context = new CinemaManagementContext())
                 {
                     serviceInBills = await context.ServiceInBills.ToListAsync();
-
                 }
                 return serviceInBills;
             }
@@ -143,7 +173,7 @@ namespace DataAccess.DAO
                 {
                   
                     IEnumerable<ServiceInBill> searchValues = await (from service in context.ServiceInBills
-                                                                     where service.ServiceInCinema.ServiceId.Equals(ServiceId)
+                                                                     where service.BillId.Equals(ServiceId)
                                                                        select service).ToListAsync();
                     searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                     searchResult = searchValues.ToList();

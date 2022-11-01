@@ -192,6 +192,40 @@ namespace DataAccess.DAO
             }
 
         }
+        public static async Task<List<Film>> GetAllFilmNoInCinema(int CinemaId, int page, int pageSize)
+        {
+            var searchResult = new List<Film>();
+            List<Film> searchResult1 = null;
+
+            // IEnumerable<MemberObject> searchResult = null;
+            try
+            {
+                if (page == 0 || pageSize == 0)
+                {
+                    page = 1;
+                    pageSize = 1000;
+                }
+                using (var context = new CinemaManagementContext())
+                {
+
+                    IEnumerable<Film> searchValues = await (from film in context.Films
+                                                            where film.FilmInCinemas.Any(c => c.CinemaId == CinemaId)
+                                                            
+                                                            select film).ToListAsync();
+                    searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
+                    searchResult1 = searchValues.ToList();
+                    // searchValues =  searchValues.Skip((page - 1) * pageSize).Take(pageSize);
+
+                }
+                return searchResult1;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
         public static async Task<List<Cinema>> GetAllCinemaHaveFilm(int FilmId, int page, int pageSize)
         {
             var searchResult = new List<Cinema>();
