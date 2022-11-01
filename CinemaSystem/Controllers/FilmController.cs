@@ -121,40 +121,40 @@ namespace CinemaSystem.Controllers
                     var UnUpdatedModel = dbContext.Films.Find(film.Id);
                     if (UnUpdatedModel != null) 
                     {
-                        if (UnUpdatedModel.TypeInFilms.ToList().Count > 0)
-                        {
-                            UnUpdatedModel.TypeInFilms.Select(tif => tif.TypeId)
-                                .Where(tid => !film.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
-                                .Select(rmt => dbContext.TypeInFilms
-                                    .Remove(new TypeInFilm() 
-                                    { TypeId = rmt, 
-                                        FilmId = UnUpdatedModel.Id 
-                                    }));
+                        //if (UnUpdatedModel.TypeInFilms.ToList().Count > 0)
+                        //{
+                        //    UnUpdatedModel.TypeInFilms.Select(tif => tif.TypeId)
+                        //        .Where(tid => !film.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
+                        //        .Select(rmt => dbContext.TypeInFilms
+                        //            .Remove(new TypeInFilm() 
+                        //            { TypeId = rmt, 
+                        //                FilmId = UnUpdatedModel.Id 
+                        //            }));
 
-                            film.TypeInFilms.Select(tif => tif.TypeId)
-                                .Where(tid => !UnUpdatedModel.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
-                                .Select(rmt => dbContext.TypeInFilms
-                                    .Add(new TypeInFilm()
-                                    {
-                                        TypeId = rmt,
-                                        FilmId = UnUpdatedModel.Id
-                                    }));
-                        }   
+                        //    film.TypeInFilms.Select(tif => tif.TypeId)
+                        //        .Where(tid => !UnUpdatedModel.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
+                        //        .Select(rmt => dbContext.TypeInFilms
+                        //            .Add(new TypeInFilm()
+                        //            {
+                        //                TypeId = rmt,
+                        //                FilmId = UnUpdatedModel.Id
+                        //            }));
+                        //}   
 
-                        UnUpdatedModel.Active = film.Active;
-                        UnUpdatedModel.Title = film.Title;
-                        UnUpdatedModel.Description = film.Description;
-                        UnUpdatedModel.Actor = film.Actor;
-                        UnUpdatedModel.Director = film.Director;
-                        UnUpdatedModel.Language = film.Language;
-                        UnUpdatedModel.Rated = film.Rated;
-                        UnUpdatedModel.Time = film.Time;
-                        UnUpdatedModel.Trailer = film.Trailer;
-                        UnUpdatedModel.Id = film.Id;
-                        UnUpdatedModel.Image = film.Image;
-                        UnUpdatedModel.TypeInFilms = film.TypeInFilms;
+                        //UnUpdatedModel.Active = film.Active;
+                        //UnUpdatedModel.Title = film.Title;
+                        //UnUpdatedModel.Description = film.Description;
+                        //UnUpdatedModel.Actor = film.Actor;
+                        //UnUpdatedModel.Director = film.Director;
+                        //UnUpdatedModel.Language = film.Language;
+                        //UnUpdatedModel.Rated = film.Rated;
+                        //UnUpdatedModel.Time = film.Time;
+                        //UnUpdatedModel.Trailer = film.Trailer;
+                        //UnUpdatedModel.Id = film.Id;
+                        //UnUpdatedModel.Image = film.Image;
+                        //UnUpdatedModel.TypeInFilms = film.TypeInFilms;
 
-                        await dbContext.SaveChangesAsync();
+                        //await dbContext.SaveChangesAsync();
                         return Ok(new { StatusCode = 200, Message = "Update successful" });
                     }
                     else

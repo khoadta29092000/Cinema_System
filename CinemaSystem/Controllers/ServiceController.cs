@@ -95,15 +95,11 @@ namespace CinemaSystem.Controllers
             {
                 using (var dbContext = new CinemaManagementContext())
                 {
-<<<<<<< HEAD
-                    serviceFromDB.Title = service.title;
-                    serviceFromDB.Price = service.price;
-                    serviceFromDB.Quantity = service.quantity;
-                    serviceFromDB.Description = service.description;
-                    serviceFromDB.Active = service.active;
-                    serviceFromDB.Image = service.image;
-                    await dbContext.SaveChangesAsync();
-=======
+
+
+
+
+
                     bool isDuplicateName = dbContext.Services
                         .Where(cnm => cnm.Id != service.id)
                         .Any(cnm => String.Compare(cnm.Title, service.title) == 0);
@@ -119,7 +115,7 @@ namespace CinemaSystem.Controllers
                         serviceFromDB.Active = service.active;
 
                         await dbContext.SaveChangesAsync();
->>>>>>> d977f9db72462c5d20b2d40ccf2719cbac02d001
+
 
                         return Ok(new { StatusCode = 200, Message = "Update successful" });
                     }
