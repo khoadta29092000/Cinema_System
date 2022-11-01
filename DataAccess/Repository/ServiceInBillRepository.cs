@@ -11,7 +11,7 @@ namespace DataAccess.Repository
     public class ServiceInBillRepository : IServiceInBillRepository
     {
         public Task<List<ServiceInBill>> GetServiceInBills() => ServiceInBillDAO.GetServiceInBills();
-
+        public Task<List<ServiceDTO>> GetServiceInBills1() => ServiceInBillDAO.GetServiceInBills1();
         public Task<ServiceInBill> GetServiceInBillById(int ServiceInCinemaId, int BillId) => ServiceInBillDAO.Instance.GetServiceInBillById(ServiceInCinemaId, BillId);
         public Task DeleteServiceInBill(int ServiceInCinemaId, int BillId) => ServiceInBillDAO.DeleteServiceInBill(ServiceInCinemaId, BillId);
         public Task AddServiceInBill(ServiceInBill m) => ServiceInBillDAO.AddServiceInBill(m);

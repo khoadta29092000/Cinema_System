@@ -27,3 +27,4 @@ C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Release\net5.0\Bus
 C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Release\net5.0\ref\BusinessObject.dll
 C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Release\net5.0\BusinessObject.pdb
 C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Release\net5.0\BusinessObject.genruntimeconfig.cache
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Release\net5.0\BusinessObject.csproj.AssemblyReference.cache

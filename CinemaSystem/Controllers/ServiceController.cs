@@ -103,7 +103,7 @@ namespace CinemaSystem.Controllers
                     serviceFromDB.Quantity = service.quantity;
                     serviceFromDB.Description = service.description;
                     serviceFromDB.Active = service.active;
-
+                    serviceFromDB.Image = service.image;
                     await dbContext.SaveChangesAsync();
 
                     return Ok(dbContext.Services.Find(id));

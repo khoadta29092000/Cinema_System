@@ -169,10 +169,10 @@ namespace DataAccess.DAO
             }
             return searchResult;
         }
-        public static async Task<List<Service>> GetAllServiceInCinema(int CinemaId, int page, int pageSize)
+        public static async Task<List<ServiceInCinemaDTO>> GetAllServiceInCinema(int CinemaId, int page, int pageSize)
         {
-            var searchResult = new List<Service>();
-            List<Service> searchResult1 = null;
+            var searchResult = new List<ServiceInCinemaDTO>();
+            List<ServiceInCinemaDTO> searchResult1 = null;
 
             // IEnumerable<MemberObject> searchResult = null;
             try
@@ -184,11 +184,24 @@ namespace DataAccess.DAO
                 }
                     using (var context = new CinemaManagementContext())
                     {
-
-                        IEnumerable<Service> searchValues = await (from service in context.Services
-                                                                   where service.ServiceInCinemas.Any(c => c.CinemaId == CinemaId)
-                                                                   select service).ToListAsync();
-                        searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
+                  
+                    IEnumerable<ServiceInCinemaDTO> searchValues = await (from serviceInCinema in context.ServiceInCinemas
+                                                                          join service in context.Services on serviceInCinema.ServiceId equals service.Id into t
+                                                         
+                                                               from service in t.DefaultIfEmpty()
+                                                                          where service.ServiceInCinemas.Any(c => c.CinemaId == CinemaId)
+                                                                          select  new ServiceInCinemaDTO
+                                                               {
+                                                                   Active = service.Active,
+                                                                   Description = service.Description,
+                                                                   Id = service.Id,
+                                                                   Title = service.Title,
+                                                                   Price = service.Price,
+                                                                   Image = service.Image,
+                                                                   QuantityInCinema = serviceInCinema.Quantity,
+                                                                   Quantity = service.Quantity
+                                                               }).ToListAsync();
+                    searchValues = searchValues.Skip((page - 1) * pageSize).Take(pageSize);
                         searchResult1 = searchValues.ToList();
                         // searchValues =  searchValues.Skip((page - 1) * pageSize).Take(pageSize);
 

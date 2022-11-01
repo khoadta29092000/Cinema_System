@@ -20,7 +20,7 @@ namespace DataAccess.Repository
         public Task<ServiceInCinema> GetServiceInCinemaById(int Id) => ServiceInCinemaDAO.Instance.GetServiceInCinemaById(Id);
         public Task<List<ServiceInCinema>> SearchByCinemaId(int CinemaId, int page, int pageSize) => ServiceInCinemaDAO.Instance.SearchByCinemaId(CinemaId, page, pageSize);
         public Task<List<ServiceInCinema>> SearchByServiceId(int ServiceId, int page, int pageSize) => ServiceInCinemaDAO.Instance.SearchByServiceId(ServiceId, page, pageSize);
-        public Task<List<Service>> GetAllServiceInCinema(int CinemaId, int page, int pageSize) => ServiceInCinemaDAO.GetAllServiceInCinema(CinemaId, page, pageSize);
+        public Task<List<ServiceInCinemaDTO>> GetAllServiceInCinema(int CinemaId, int page, int pageSize) => ServiceInCinemaDAO.GetAllServiceInCinema(CinemaId, page, pageSize);
         public Task<List<Cinema>> GetAllCinemaHaveService(int ServiceId, int page, int pageSize) => ServiceInCinemaDAO.GetAllCinemaHaveService(ServiceId, page, pageSize);
     }
 }

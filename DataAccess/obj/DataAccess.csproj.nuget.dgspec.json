@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
+    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\Duong Mai Hoang\\.nuget\\packages\\",
-        "outputPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Duong Mai Hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,21 +90,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\Duong Mai Hoang\\.nuget\\packages\\",
-        "outputPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Duong Mai Hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,8 +118,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "B:\\WorkingSet CODE\\VisualStudioCode\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
+              "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -148,7 +148,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
