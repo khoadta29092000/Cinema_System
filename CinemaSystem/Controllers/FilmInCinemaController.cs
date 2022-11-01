@@ -58,7 +58,7 @@ namespace CinemaSystem.Controllers
             }
         }
 
-        [HttpGet("AllFilmInCinemaToday/{CinemaId}")]
+        [HttpGet("AllFilmInCinemaToday")]
         public async Task<IActionResult> GetAllFilmInCinemaToday(int CinemaId, int page, int pageSize)
         {
             var filmInCinemaFromDB = new List<FilmInCinema>();
@@ -68,12 +68,11 @@ namespace CinemaSystem.Controllers
                 {
                     filmInCinemaFromDB = await dbContext.FilmInCinemas.ToListAsync();
                     var listFilm = filmInCinemaFromDB
-                        .Where(x => x.CinemaId == CinemaId).ToList()
                         .Where(f => f.Startime.Value.Date <= DateTime.Now.Date && DateTime.Now.Date <= f.Endtime.Value.Date).ToList()
-                        .Select(fic => { fic.Film = dbContext.Films.Find(fic.FilmId); return fic; }).ToList();
+                        .Select(fic => dbContext.Films.Find(fic.FilmId)).GroupBy(f => f.Id).Select(x => x.FirstOrDefault()).ToList();
 
                     if (listFilm.Count <= 0) return Ok("No Film for today");
-                    return Ok(listFilm);
+                    return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilm });
 
                 }
 
