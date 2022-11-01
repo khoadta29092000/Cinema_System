@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using CinemaSystem.Models;
+using CinemaSystem.ViewModel;
 
 namespace CinemaSystem.Controllers
 {
@@ -102,7 +103,7 @@ namespace CinemaSystem.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "1")]
-        public async Task<IActionResult> update(int id, Film film)
+        public async Task<IActionResult> update(int id, FilmVM film)
         {
             if (id != film.Id)
             {
@@ -110,28 +111,63 @@ namespace CinemaSystem.Controllers
             }
             try
             {
-                Film updateFilm = new Film
+                using (var dbContext = new CinemaManagementContext())
                 {
-                    Active = film.Active,
-                    Title = film.Title,
-                    Description = film.Description,
-                    Actor = film.Actor,
-                    Director = film.Director,
-                    Language = film.Language,
-                    Rated = film.Rated,
-                    Time = film.Time,
-                    Trailer = film.Trailer,
-                    Id = film.Id,
-                    Image = film.Image,
-                };
-                await filmRepository.UpdateFilm(updateFilm);
-                return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    bool isDuplicateName = dbContext.Films
+                        .Where(cnm => cnm.Id != film.Id)
+                        .Any(cnm => String.Compare(cnm.Title, film.Title) == 0);
+                    if (isDuplicateName) throw new Exception("Duplicate Name Of Film");
+
+                    var UnUpdatedModel = dbContext.Films.Find(film.Id);
+                    if (UnUpdatedModel != null) 
+                    {
+                        if (UnUpdatedModel.TypeInFilms.ToList().Count > 0)
+                        {
+                            UnUpdatedModel.TypeInFilms.Select(tif => tif.TypeId)
+                                .Where(tid => !film.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
+                                .Select(rmt => dbContext.TypeInFilms
+                                    .Remove(new TypeInFilm() 
+                                    { TypeId = rmt, 
+                                        FilmId = UnUpdatedModel.Id 
+                                    }));
+
+                            film.TypeInFilms.Select(tif => tif.TypeId)
+                                .Where(tid => !UnUpdatedModel.TypeInFilms.Select(obj => obj.TypeId).Contains(tid))
+                                .Select(rmt => dbContext.TypeInFilms
+                                    .Add(new TypeInFilm()
+                                    {
+                                        TypeId = rmt,
+                                        FilmId = UnUpdatedModel.Id
+                                    }));
+                        }   
+
+                        UnUpdatedModel.Active = film.Active;
+                        UnUpdatedModel.Title = film.Title;
+                        UnUpdatedModel.Description = film.Description;
+                        UnUpdatedModel.Actor = film.Actor;
+                        UnUpdatedModel.Director = film.Director;
+                        UnUpdatedModel.Language = film.Language;
+                        UnUpdatedModel.Rated = film.Rated;
+                        UnUpdatedModel.Time = film.Time;
+                        UnUpdatedModel.Trailer = film.Trailer;
+                        UnUpdatedModel.Id = film.Id;
+                        UnUpdatedModel.Image = film.Image;
+                        UnUpdatedModel.TypeInFilms = film.TypeInFilms;
+
+                        await dbContext.SaveChangesAsync();
+                        return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    }
+                    else
+                    {
+                        throw new Exception("Film Id Not Found");
+                    }
+
+                }
             }
             catch (Exception ex)
             {
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
-
 
         }
 

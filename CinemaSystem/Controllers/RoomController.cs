@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
-
+using CinemaSystem.ViewModel;
 
 namespace CinemaSystem.Controllers
 {
@@ -81,7 +81,7 @@ namespace CinemaSystem.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "1")]
-        public async Task<IActionResult> update(int id, Room room)
+        public async Task<IActionResult> update(int id, RoomVM room)
         {
             if (id != room.Id)
             {
@@ -89,16 +89,33 @@ namespace CinemaSystem.Controllers
             }
             try
             {
-                var updateRoom = new Room
+                using (var dbContext = new CinemaManagementContext())
                 {
-                    Id = room.Id,
-                    Active = room.Active,
-                    CinemaId = room.CinemaId,
-                    Title = room.Title,
-                    Description = room.Description,
-                };
-                await roomRepository.UpdateRoom(updateRoom);
-                return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    bool isDuplicateName = dbContext.Rooms
+                        .Where(cnm => cnm.Id != room.Id)
+                        .Where(cnm => cnm.CinemaId == room.CinemaId)
+                        .Any(cnm => String.Compare(cnm.Title, room.Title) == 0);
+                    if (isDuplicateName) throw new Exception("Duplicate Name Of room");
+
+                    var UnUpdatedModel = dbContext.Rooms.Find(room.Id);
+                    if (UnUpdatedModel != null)
+                    {
+                        UnUpdatedModel.Id = room.Id;
+                        UnUpdatedModel.Active = room.Active;
+                        UnUpdatedModel.CinemaId = room.CinemaId;
+                        UnUpdatedModel.Title = room.Title;
+                        UnUpdatedModel.Description = room.Description;
+
+                        await dbContext.SaveChangesAsync();
+
+                        return Ok(new { StatusCode = 200, Message = "Update successful" });
+
+                    }
+                    else
+                    {
+                        throw new Exception("Room Id Not Found");
+                    }
+                }
             }
             catch (Exception ex)
             {

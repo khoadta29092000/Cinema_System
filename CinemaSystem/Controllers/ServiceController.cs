@@ -84,31 +84,36 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "1")]
+        [Authorize(Roles = "1")]
         public async Task<IActionResult> update(int id,ServiceVM service)
         {
-            var dbContext = new CinemaManagementContext();
             if (id != service.id)
             {
                 return BadRequest();
             }
             try
             {
-                var serviceFromDB = dbContext.Services.Find(id);
-                //var serviceFromDB = await serviceRepository.GetServiceById(id);
-                if (serviceFromDB != null)
+                using (var dbContext = new CinemaManagementContext())
                 {
-                    serviceFromDB.Title = service.title;
-                    serviceFromDB.Price = service.price;
-                    serviceFromDB.Quantity = service.quantity;
-                    serviceFromDB.Description = service.description;
-                    serviceFromDB.Active = service.active;
+                    bool isDuplicateName = dbContext.Services
+                        .Where(cnm => cnm.Id != service.id)
+                        .Any(cnm => String.Compare(cnm.Title, service.title) == 0);
+                    if (isDuplicateName) throw new Exception("Duplicate Name Of Cinema");
+                    
+                    var serviceFromDB = dbContext.Services.Find(id);
+                    if (serviceFromDB != null)
+                    {
+                        serviceFromDB.Title = service.title;
+                        serviceFromDB.Price = service.price;
+                        serviceFromDB.Quantity = service.quantity;
+                        serviceFromDB.Description = service.description;
+                        serviceFromDB.Active = service.active;
 
-                    await dbContext.SaveChangesAsync();
+                        await dbContext.SaveChangesAsync();
 
-                    return Ok(new { StatusCode = 200, Message = "Update successful" });
+                        return Ok(new { StatusCode = 200, Message = "Update successful" });
+                    }
                 }
-
                 throw new Exception("Service Id Not Found");
                   
             }
