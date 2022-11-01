@@ -83,8 +83,8 @@ namespace CinemaSystem.Controllers
             }
         }
 
-        [HttpGet("AllFilmInCinemaComingSoon/{CinemaId}")]
-        public async Task<IActionResult> GetAllFilmInCinemaComingSoon(int CinemaId, int page, int pageSize)
+        [HttpGet("AllFilmInCinemaComingSoon")]
+        public async Task<IActionResult> GetAllFilmInCinemaComingSoon(int page, int pageSize)
         {
             var filmInCinemaFromDB = new List<FilmInCinema>();
             try
@@ -93,12 +93,34 @@ namespace CinemaSystem.Controllers
                 {
                     filmInCinemaFromDB = await dbContext.FilmInCinemas.ToListAsync();
                     var listFilm = filmInCinemaFromDB
-                        .Where(x => x.CinemaId == CinemaId).ToList()
                         .Where(f => DateTime.Now.Date < f.Startime.Value.Date).ToList()
-                        .Select(fic => { fic.Film = dbContext.Films.Find(fic.FilmId); return fic; }).ToList();
+                        .Select(fic => dbContext.Films.Find(fic.FilmId)).GroupBy(f => f.Id).Select(x => x.FirstOrDefault()).ToList();
 
-                    if (listFilm.Count <= 0) return Ok("There is no Film comming soon in CinemaId = " + CinemaId);
-                    return Ok(listFilm);
+                    if (listFilm.Count <= 0) return Ok("There is no Film comming soon");
+                    return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilm });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+        }
+
+        [HttpGet("AllFilmNotInCinema/{cinemaId}")]
+        public async Task<IActionResult> GetAllFilmInCinemaComingSoon(int cinemaId, int page, int pageSize)
+        {
+            var filmInCinemaFromDB = new List<FilmInCinema>();
+            try
+            {
+                using (var dbContext = new CinemaManagementContext())
+                {
+                    var listFilmInCinema = dbContext.FilmInCinemas.Where(f => f.CinemaId == cinemaId).Select(f => f.FilmId).Distinct().ToList();
+                    if (listFilmInCinema.Count == 0)
+                    {
+                        return Ok(new { StatusCode = 200, Message = "Load successful", data = dbContext.Films });
+                    }
+                    var listFilmNotInCinema = dbContext.Films.Where(f => !listFilmInCinema.Contains(f.Id)).ToList();
+                    return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilmNotInCinema });
                 }
             }
             catch (Exception ex)
