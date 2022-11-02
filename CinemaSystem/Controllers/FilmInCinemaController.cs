@@ -59,7 +59,7 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpGet("AllFilmInCinemaToday")]
-        public async Task<IActionResult> GetAllFilmInCinemaToday(int CinemaId, int page, int pageSize)
+        public async Task<IActionResult> GetAllFilmInCinemaToday(int page, int pageSize)
         {
             var filmInCinemaFromDB = new List<FilmInCinema>();
             try
@@ -70,6 +70,33 @@ namespace CinemaSystem.Controllers
                     var listFilm = filmInCinemaFromDB
                         .Where(f => f.Startime.Value.Date <= DateTime.Now.Date && DateTime.Now.Date <= f.Endtime.Value.Date).ToList()
                         .Select(fic => dbContext.Films.Find(fic.FilmId)).GroupBy(f => f.Id).Select(x => x.FirstOrDefault()).ToList();
+
+                    if (listFilm.Count <= 0) return Ok("No Film for today");
+                    return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilm });
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+        }
+
+        [HttpGet("AllFilmInCinemaToday/{CinemaId}")]
+        public async Task<IActionResult> GetAllFilmInCinemaTodayByCinemaId(int CinemaId, int page, int pageSize)
+        {
+            var filmInCinemaFromDB = new List<FilmInCinema>();
+            try
+            {
+                using (var dbContext = new CinemaManagementContext())
+                {
+                    filmInCinemaFromDB = await dbContext.FilmInCinemas.ToListAsync();
+                    var listFilm = filmInCinemaFromDB
+                        .Where(f => f.CinemaId == CinemaId)
+                        .Where(f => f.Startime.Value.Date <= DateTime.Now.Date && DateTime.Now.Date <= f.Endtime.Value.Date).ToList()
+                        .Select(fic => dbContext.Films.Find(fic.FilmId))
+                        .GroupBy(f => f.Id).Select(x => x.FirstOrDefault()).ToList();
 
                     if (listFilm.Count <= 0) return Ok("No Film for today");
                     return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilm });

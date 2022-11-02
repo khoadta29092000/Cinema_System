@@ -41,9 +41,8 @@ namespace CinemaSystem.Controllers
             {
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
-
-
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult> GetSchedulingById(int id)
         {
@@ -89,9 +88,9 @@ namespace CinemaSystem.Controllers
             {
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
-
-
         }
+
+        [HttpPost("")]
 
         [HttpPut("{id}")]
         //[Authorize(Roles = "1")]
