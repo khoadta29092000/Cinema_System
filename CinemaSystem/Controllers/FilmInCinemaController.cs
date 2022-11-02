@@ -107,9 +107,8 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpGet("AllFilmNotInCinema/{cinemaId}")]
-        public async Task<IActionResult> GetAllFilmInCinemaComingSoon(int cinemaId, int page, int pageSize)
+        public async Task<IActionResult> GetAllFilmNotInCinema(int cinemaId, int page, int pageSize)
         {
-            var filmInCinemaFromDB = new List<FilmInCinema>();
             try
             {
                 using (var dbContext = new CinemaManagementContext())

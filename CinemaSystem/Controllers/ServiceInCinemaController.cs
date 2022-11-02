@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using CinemaSystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaSystem.Controllers
 {
@@ -72,6 +73,29 @@ namespace CinemaSystem.Controllers
                 return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
             }
         }
+
+        [HttpGet("AllServiceNotInCinema/{cinemaId}")]
+        public async Task<IActionResult> GetAllServiceNotInCinema(int cinemaId, int page, int pageSize)
+        {
+            try
+            {
+                using (var dbContext = new CinemaManagementContext())
+                {
+                    var listServiceInCinema = dbContext.ServiceInCinemas.Where(f => f.CinemaId == cinemaId).Select(f => f.ServiceId).Distinct().ToList();
+                    if (listServiceInCinema.Count == 0)
+                    {
+                        return Ok(new { StatusCode = 200, Message = "Load successful", data = dbContext.Services });
+                    }
+                    var listServiceNotInCinema = dbContext.Services.Where(f => !listServiceInCinema.Contains(f.Id)).ToList();
+                    return Ok(new { StatusCode = 200, Message = "Load successful", data = listServiceNotInCinema });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+        }
+
         [HttpGet("{Id}")]
         public async Task<ActionResult> GetTypeInFilmById(int Id)
         {
