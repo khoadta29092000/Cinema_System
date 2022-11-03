@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using CinemaSystem.ViewModel;
 
 namespace CinemaSystem.Controllers
 {
@@ -96,7 +97,23 @@ namespace CinemaSystem.Controllers
                         .Where(f => f.CinemaId == CinemaId)
                         .Where(f => f.Startime.Value.Date <= DateTime.Now.Date && DateTime.Now.Date <= f.Endtime.Value.Date).ToList()
                         .Select(fic => dbContext.Films.Find(fic.FilmId))
-                        .GroupBy(f => f.Id).Select(x => x.FirstOrDefault()).ToList();
+                        .GroupBy(f => f.Id).Select(x => x.FirstOrDefault())
+                        .Select(f => new FilmInCinemaVM() {
+                            Id = f.Id,
+                            Title = f.Title,
+                            Director = f.Director,
+                            Actor = f.Actor,
+                            Time = f.Time,
+                            Language = f.Language,
+                            Rated = f.Rated,
+                            Trailer = f.Trailer,
+                            Description = f.Description,
+                            Image = f.Image,
+                            Active = f.Active,
+                            Startime = f.FilmInCinemas.FirstOrDefault(obj => obj.CinemaId == CinemaId && obj.FilmId == f.Id).Startime,
+                            Endtime = f.FilmInCinemas.FirstOrDefault(obj => obj.CinemaId == CinemaId && obj.FilmId == f.Id).Endtime
+                        })
+                        .ToList();
 
                     if (listFilm.Count <= 0) return Ok("No Film for today");
                     return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilm });
