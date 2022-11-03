@@ -12,6 +12,7 @@ namespace BusinessObject.Models
         public int SchedulingId { get; set; }
         public int AccountId { get; set; }
         public decimal? Price { get; set; }
+        public bool? Checking { get; set; }
 
         public virtual Account Account { get; set; }
         public virtual Bill Bill { get; set; }

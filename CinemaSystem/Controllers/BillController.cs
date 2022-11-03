@@ -127,6 +127,7 @@ namespace CinemaSystem.Controllers
 
                         var newServiceInBill = new ServiceInBill
                         {
+                            Checking = false,
                             BillId = idBill.Id,
                             ServiceInCinemaId = ServiceInCinemaId.Id,
                             Quantity = item.Quantity
@@ -143,13 +144,14 @@ namespace CinemaSystem.Controllers
                     }
                     foreach (TickedObject item in billObject.TickedObject)
                     {
-                        var newTicked = new Ticked
-                        {
-                            BillId = idBill.Id,
-                            SchedulingId = billObject.SchedulingId ?? default(int),
-                            SeatId = item.SeatId,
-                            AccountId = item.AccountId,
-                            Price = 80
+                    var newTicked = new Ticked
+                    {
+                        BillId = idBill.Id,
+                        SchedulingId = billObject.SchedulingId ?? default(int),
+                        SeatId = item.SeatId,
+                        AccountId = item.AccountId,
+                        Price = 80,
+                        Checking = false,
                         };
                         await tickedRepository.AddTicked(newTicked);
                          priceSeatAll += 80;
