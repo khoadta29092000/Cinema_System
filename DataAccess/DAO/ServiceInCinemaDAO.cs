@@ -186,10 +186,8 @@ namespace DataAccess.DAO
                     {
                   
                     IEnumerable<ServiceInCinemaDTO> searchValues = await (from serviceInCinema in context.ServiceInCinemas
-                                                                          join service in context.Services on serviceInCinema.ServiceId equals service.Id into t
-                                                         
-                                                               from service in t.DefaultIfEmpty()
-                                                                          where service.ServiceInCinemas.Any(c => c.CinemaId == CinemaId)
+                                                                          join service in context.Services on serviceInCinema.ServiceId equals service.Id
+                                                                          where serviceInCinema.CinemaId == CinemaId
                                                                           select  new ServiceInCinemaDTO
                                                                {
                                                                    Active = service.Active,

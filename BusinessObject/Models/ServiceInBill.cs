@@ -10,7 +10,7 @@ namespace BusinessObject.Models
         public int ServiceInCinemaId { get; set; }
         public int BillId { get; set; }
         public int? Quantity { get; set; }
-
+        public bool? Checking { get; set; }
         public virtual Bill Bill { get; set; }
         public virtual ServiceInCinema ServiceInCinema { get; set; }
     }

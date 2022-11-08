@@ -66,10 +66,10 @@ namespace CinemaSystem.Controllers
             {
                 int filmId = scheduling.FilmId ?? default(int); 
                 Film film = await filmRepository.GetFilmById(filmId);       
-                TimeSpan StartTime = scheduling.StartTime ?? default(TimeSpan);
+                DateTime StartTime = scheduling.StartTime;
                 int range = film.Time + 15 ?? default(int);
-                TimeSpan duration = new TimeSpan(0, range, 0);
-                TimeSpan EndTime = StartTime.Add(duration);
+                DateTime duration = new DateTime(0, range, 0);
+               // DateTime EndTime = StartTime.Add(duration);
                  var room = await roomRepository.GetRoomById(scheduling.RoomId ?? default(int));
                 var newScheduling = new Scheduling
                 {
@@ -77,7 +77,7 @@ namespace CinemaSystem.Controllers
                     FilmId = scheduling.FilmId,
                     CinemaId = room.CinemaId,
                     Date = scheduling.Date,
-                    EndTime = EndTime,
+                    EndTime = scheduling.EndTime,
                     RoomId  = scheduling.RoomId,
                     StartTime = scheduling.StartTime,
                 };
@@ -104,10 +104,10 @@ namespace CinemaSystem.Controllers
             {
                 int filmId = scheduling.FilmId ?? default(int);
                 Film film = await filmRepository.GetFilmById(filmId);
-                TimeSpan StartTime = scheduling.StartTime ?? default(TimeSpan);
+                DateTime StartTime = scheduling.StartTime;
                 int range = film.Time + 15 ?? default(int);
-                TimeSpan duration = new TimeSpan(0, range, 0);
-                TimeSpan EndTime = StartTime.Add(duration);
+                DateTime duration = new DateTime(0, range, 0);
+                //DateTime EndTime = StartTime.Add(duration);
                 var room = await roomRepository.GetRoomById(scheduling.RoomId ?? default(int));
                 var updateScheduling = new Scheduling
                 {
@@ -118,7 +118,7 @@ namespace CinemaSystem.Controllers
                     RoomId = scheduling.RoomId,
                     Id = scheduling.Id,
                     StartTime = scheduling.StartTime,
-                    EndTime = EndTime,
+                    EndTime = scheduling.EndTime,
                 };
                 await schedulingRepository.UpdateScheduling(updateScheduling);
                 return Ok(new { StatusCode = 200, Message = "Update successful" });

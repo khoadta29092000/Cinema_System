@@ -17,6 +17,7 @@ namespace BusinessObject.Models
         public int ServiceId { get; set; }
         public int? Quantity { get; set; }
         public bool? Active { get; set; }
+      
 
         public virtual Cinema Cinema { get; set; }
         public virtual Service Service { get; set; }

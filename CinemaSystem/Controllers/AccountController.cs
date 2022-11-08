@@ -266,7 +266,7 @@ namespace CinemaSystem.Controllers
 
         }
         [HttpPut("ChangePassword")]
-        [Authorize()]
+   
         public async Task<IActionResult> ChangPassword(int id, ChangePassword acc)
         {
 

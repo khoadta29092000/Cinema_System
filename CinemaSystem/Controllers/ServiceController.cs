@@ -96,10 +96,6 @@ namespace CinemaSystem.Controllers
                 using (var dbContext = new CinemaManagementContext())
                 {
 
-
-
-
-
                     bool isDuplicateName = dbContext.Services
                         .Where(cnm => cnm.Id != service.id)
                         .Any(cnm => String.Compare(cnm.Title, service.title) == 0);
@@ -113,6 +109,7 @@ namespace CinemaSystem.Controllers
                         serviceFromDB.Quantity = service.quantity;
                         serviceFromDB.Description = service.description;
                         serviceFromDB.Active = service.active;
+                        serviceFromDB.Image = service.image;
 
                         await dbContext.SaveChangesAsync();
 

@@ -42,7 +42,8 @@ namespace BusinessObject.Models
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer("workstation id=CinemaManagement.mssql.somee.com;packet size=4096;user id=tiensidien1234_SQLLogin_1;pwd=nv6a752x2u;data source=CinemaManagement.mssql.somee.com;persist security info=False;initial catalog=CinemaManagement; Encrypt=false;TrustServerCertificate=true"
-                optionsBuilder.UseSqlServer("Server=DESKTOP-B626C3N\\DUONGMH;TrustServerCertificate=True;Database=Cinema Management;Uid=sa;password=root;"
+                //optionsBuilder.UseSqlServer("Server=DESKTOP-B626C3N\\DUONGMH;TrustServerCertificate=True;Database=Cinema Management;Uid=sa;password=root;"
+                optionsBuilder.UseSqlServer("Server=CHAU-ANH-DUONG\\DUONGMH;TrustServerCertificate=True;Database=Cinema Management;Uid=sa;password=root;"
                 );
             }
 
@@ -225,6 +226,9 @@ namespace BusinessObject.Models
                 entity.ToTable("Scheduling");
 
                 entity.Property(e => e.Date).HasColumnType("date");
+                entity.Property(e => e.Date).HasColumnType("StartTime");
+                entity.Property(e => e.Date).HasColumnType("EndTime");
+
 
                 entity.HasOne(d => d.Cinema)
                     .WithMany(p => p.Schedulings)

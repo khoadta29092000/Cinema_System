@@ -12,8 +12,8 @@ namespace BusinessObject.Models
         public int? RoomId { get; set; }
         public int? CinemaId { get; set; }
         public int? FilmId { get; set; }
-        public TimeSpan? StartTime { get; set; }
-        public TimeSpan? EndTime { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public bool? Active { get; set; }
 
         public virtual Cinema Cinema { get; set; }
