@@ -1,0 +1,14 @@
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\bin\Debug\log4net.config
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\bin\Debug\MoMo.exe.config
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\bin\Debug\MoMo.exe
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\bin\Debug\MoMo.pdb
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\bin\Debug\log4net.dll
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\bin\Debug\Newtonsoft.Json.dll
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.csproj.AssemblyReference.cache
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.MoMoForm.resources
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.Properties.Resources.resources
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.csproj.GenerateResource.cache
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.csproj.CoreCompileInputs.cache
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.csproj.CopyComplete
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.exe
+B:\WorkingSet CODE\VisualStudio\payment\c#\MoMo\obj\Debug\MoMo.pdb

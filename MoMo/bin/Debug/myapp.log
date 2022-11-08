@@ -1,0 +1,29 @@
+2022-11-09 01:54:36,349 [1] DEBUG MoMo.MoMoForm - rawHash = accessKey=M8brj9K6E22vXoDB&amount=55000&extraData=&ipnUrl=https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b&orderId=69587d83-1853-416e-8e1b-cbd9c9c4861c&orderInfo=test&partnerCode=MOMO5RGX20191128&redirectUrl=https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b&requestId=2e1ddf09-be9d-4a6a-8baa-913049eb8834&requestType=captureWallet
+2022-11-09 01:54:36,393 [1] DEBUG MoMo.MoMoForm - Signature = 34253e3a4e37f127a1c86d266e68c4aaac5a46abcba77d38629f0892082aa902
+2022-11-09 01:54:36,463 [1] DEBUG MoMo.MoMoForm - Json request to MoMo: {
+  "partnerCode": "MOMO5RGX20191128",
+  "partnerName": "Test",
+  "storeId": "MomoTestStore",
+  "requestId": "2e1ddf09-be9d-4a6a-8baa-913049eb8834",
+  "amount": "55000",
+  "orderId": "69587d83-1853-416e-8e1b-cbd9c9c4861c",
+  "orderInfo": "test",
+  "redirectUrl": "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b",
+  "ipnUrl": "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b",
+  "lang": "en",
+  "extraData": "",
+  "requestType": "captureWallet",
+  "signature": "34253e3a4e37f127a1c86d266e68c4aaac5a46abcba77d38629f0892082aa902"
+}
+2022-11-09 01:54:37,188 [1] DEBUG MoMo.MoMoForm - Return from MoMo: {
+  "partnerCode": "MOMO5RGX20191128",
+  "orderId": "69587d83-1853-416e-8e1b-cbd9c9c4861c",
+  "requestId": "2e1ddf09-be9d-4a6a-8baa-913049eb8834",
+  "amount": 55000,
+  "responseTime": 1667933676953,
+  "message": "Successful.",
+  "resultCode": 0,
+  "payUrl": "https://test-payment.momo.vn/v2/gateway/pay?t=TU9NTzVSR1gyMDE5MTEyOHw2OTU4N2Q4My0xODUzLTQxNmUtOGUxYi1jYmQ5YzljNDg2MWM=",
+  "deeplink": "momo://app?action=payWithApp&isScanQR=false&serviceType=app&sid=TU9NTzVSR1gyMDE5MTEyOHw2OTU4N2Q4My0xODUzLTQxNmUtOGUxYi1jYmQ5YzljNDg2MWM=&v=2.2",
+  "deeplinkMiniApp": "momo://app?action=payWithApp&isScanQR=false&serviceType=miniapp&sid=TU9NTzVSR1gyMDE5MTEyOHw2OTU4N2Q4My0xODUzLTQxNmUtOGUxYi1jYmQ5YzljNDg2MWM=&v=2.2"
+}
