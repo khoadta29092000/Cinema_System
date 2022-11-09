@@ -8,6 +8,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using CinemaSystem.Models;
 using MoMo;
+using System.Net.Mail;
+using System.Net;
+using System.IO;
+using System.Web;
+using MimeKit;
 
 namespace CinemaSystem.Controllers
 {
@@ -202,6 +207,51 @@ namespace CinemaSystem.Controllers
 
 
         }
+
+        [HttpPost("SendMail")]
+        //[Authorize(Roles = "1")]
+        public async Task<IActionResult> SendMail(SendEmail sendEmail)
+        {
+
+            try {
+                string ticked = string.Join(",", sendEmail.ticked.Select(p => p.ToString()).ToArray());
+                string service = string.Join(",", sendEmail.service.Select(p => p.ToString()).ToArray());
+                string FilePath = Directory.GetCurrentDirectory() + "\\HTML\\htm.html";
+                StreamReader str = new StreamReader(FilePath);
+                string MailText = str.ReadToEnd();
+                str.Close();
+                MailText = MailText.Replace("[film]", sendEmail.film).Replace("[time]", sendEmail.time).Replace("[cinema]", sendEmail.cinema).Replace("[room]", sendEmail.room)
+                    .Replace("[date]", sendEmail.date).Replace("[startTime]", sendEmail.startTime).Replace("[billId]", sendEmail.billId).Replace("[image]", sendEmail.image)
+                    .Replace("[service]", service).Replace("[ticked]", ticked);
+                string subject = sendEmail.subject;
+                string to = sendEmail.to;
+                MailMessage mm = new MailMessage();
+                mm.From = new MailAddress("tiensidien1234@gmail.com");
+                mm.To.Add(to);
+                mm.Subject = subject;
+                mm.Body = MailText.ToString();
+                mm.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+             
+                smtp.Port = 587;
+                            
+                NetworkCredential nc = new NetworkCredential("tiensidien1234@gmail.com", "ooknrpifyewnklrf");
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = nc;
+                smtp.Send(mm);
+                return Ok(new { StatusCode = 200, Message = "send mail successful" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+
+
+        }
+
+      
 
         [HttpPut("{id}")]
         [Authorize(Roles = "1")]

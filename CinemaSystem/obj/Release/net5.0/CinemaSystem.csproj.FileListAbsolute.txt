@@ -164,3 +164,8 @@ C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\Cinem
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\ref\CinemaSystem.dll
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\CinemaSystem.pdb
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\CinemaSystem.genruntimeconfig.cache
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\bin\Release\net5.0\log4net.config
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\bin\Release\net5.0\MoMo.exe
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\bin\Release\net5.0\log4net.dll
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\bin\Release\net5.0\MoMo.pdb
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\bin\Release\net5.0\MoMo.exe.config

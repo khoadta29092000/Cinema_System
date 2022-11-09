@@ -1,3 +1,4 @@
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\log4net.config
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\CinemaSystem.exe
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\appsettings.json
@@ -61,5 +62,9 @@ C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTm
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\BusinessObject.dll
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\DataAccess.dll
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\MoMo.exe
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\log4net.dll
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\BusinessObject.pdb
 C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\DataAccess.pdb
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\MoMo.pdb
+C:\Users\DELL\Desktop\Cinema\Cinema_System\CinemaSystem\obj\Release\net5.0\PubTmp\Out\MoMo.exe.config

@@ -65,11 +65,11 @@ namespace CinemaSystem.Controllers
             try
             {
                 int filmId = scheduling.FilmId ?? default(int); 
-                Film film = await filmRepository.GetFilmById(filmId);       
-                DateTime StartTime = scheduling.StartTime;
+                Film film = await filmRepository.GetFilmById(filmId);
+                TimeSpan StartTime = scheduling.StartTime;
                 int range = film.Time + 15 ?? default(int);
-                DateTime duration = new DateTime(0, range, 0);
-               // DateTime EndTime = StartTime.Add(duration);
+                TimeSpan duration = new TimeSpan(0, range, 0);
+                TimeSpan EndTime = StartTime.Add(duration);
                  var room = await roomRepository.GetRoomById(scheduling.RoomId ?? default(int));
                 var newScheduling = new Scheduling
                 {
@@ -90,8 +90,6 @@ namespace CinemaSystem.Controllers
             }
         }
 
-        [HttpPost("")]
-
         [HttpPut("{id}")]
         //[Authorize(Roles = "1")]
         public async Task<IActionResult> update(int id, Scheduling scheduling)
@@ -104,10 +102,10 @@ namespace CinemaSystem.Controllers
             {
                 int filmId = scheduling.FilmId ?? default(int);
                 Film film = await filmRepository.GetFilmById(filmId);
-                DateTime StartTime = scheduling.StartTime;
+                TimeSpan StartTime = scheduling.StartTime;
                 int range = film.Time + 15 ?? default(int);
-                DateTime duration = new DateTime(0, range, 0);
-                //DateTime EndTime = StartTime.Add(duration);
+                TimeSpan duration = new TimeSpan(0, range, 0);
+                TimeSpan EndTime = StartTime.Add(duration);
                 var room = await roomRepository.GetRoomById(scheduling.RoomId ?? default(int));
                 var updateScheduling = new Scheduling
                 {

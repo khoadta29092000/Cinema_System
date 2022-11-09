@@ -28,21 +28,6 @@ C:\Users\DELL\Desktop\Cinema_System\Cinema_System\BusinessObject\obj\Debug\net5.
 C:\Users\DELL\Desktop\Cinema_System\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.pdb
 C:\Users\DELL\Desktop\Cinema_System\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.genruntimeconfig.cache
 C:\Users\DELL\Desktop\Cinema_System\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.AssemblyReference.cache
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.deps.json
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.json
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.dev.json
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.dll
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\ref\BusinessObject.dll
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.pdb
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.AssemblyReference.cache
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfoInputs.cache
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfo.cs
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.CoreCompileInputs.cache
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.dll
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\ref\BusinessObject.dll
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.pdb
-C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.genruntimeconfig.cache
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.deps.json
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.json
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.dev.json
@@ -58,3 +43,18 @@ B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.pdb
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.genruntimeconfig.cache
 B:\WorkingSet CODE\VisualStudioCode\Cinema_System\BusinessObject\obj\Debug\net5.0\ref\BusinessObject.dll
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.deps.json
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.json
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.dev.json
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.dll
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\ref\BusinessObject.dll
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\bin\Debug\net5.0\BusinessObject.pdb
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfo.cs
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.dll
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\ref\BusinessObject.dll
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.pdb
+C:\Users\DELL\Desktop\Cinema\Cinema_System\BusinessObject\obj\Debug\net5.0\BusinessObject.genruntimeconfig.cache
