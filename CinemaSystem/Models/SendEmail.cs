@@ -16,9 +16,9 @@ namespace CinemaSystem.Models
         public string cinema { get; set; }
         public string date { get; set; }
         public string startTime { get; set; }
-        public string billId { get; set; }
+        public string Total { get; set; }
         public string image { get; set; }
-        public string[] service  { get; set; }
-        public string[] ticked { get; set; }
+        public string service  { get; set; }
+        public string ticked { get; set; }
     }
 }

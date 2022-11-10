@@ -58,6 +58,9 @@
       },
       "Microsoft.AspNet.WebApi.Client/5.0.0": {
         "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.11"
+        },
         "compile": {
           "lib/net45/System.Net.Http.Formatting.dll": {}
         },
@@ -3704,19 +3707,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
       "projectName": "BusinessObject",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3792,7 +3795,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   },

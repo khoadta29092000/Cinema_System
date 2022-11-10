@@ -214,15 +214,16 @@ namespace CinemaSystem.Controllers
         {
 
             try {
-                string ticked = string.Join(",", sendEmail.ticked.Select(p => p.ToString()).ToArray());
-                string service = string.Join(",", sendEmail.service.Select(p => p.ToString()).ToArray());
+                var BillList = await billRepository.GetBills();
+                Bill idBill = BillList.LastOrDefault(x => x.Id != null);
+                
                 string FilePath = Directory.GetCurrentDirectory() + "\\HTML\\htm.html";
                 StreamReader str = new StreamReader(FilePath);
                 string MailText = str.ReadToEnd();
                 str.Close();
                 MailText = MailText.Replace("[film]", sendEmail.film).Replace("[time]", sendEmail.time).Replace("[cinema]", sendEmail.cinema).Replace("[room]", sendEmail.room)
-                    .Replace("[date]", sendEmail.date).Replace("[startTime]", sendEmail.startTime).Replace("[billId]", sendEmail.billId).Replace("[image]", sendEmail.image)
-                    .Replace("[service]", service).Replace("[ticked]", ticked);
+                    .Replace("[date]", sendEmail.date).Replace("[startTime]", sendEmail.startTime).Replace("[billId]", idBill.Id.ToString()).Replace("[image]", sendEmail.image)
+                    .Replace("[service]", sendEmail.service).Replace("[ticked]", sendEmail.ticked).Replace("[Total]", sendEmail.Total);
                 string subject = sendEmail.subject;
                 string to = sendEmail.to;
                 MailMessage mm = new MailMessage();

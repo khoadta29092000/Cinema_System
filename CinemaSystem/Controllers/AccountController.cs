@@ -229,7 +229,7 @@ namespace CinemaSystem.Controllers
             }
         }
         [HttpPut("{id}")]
-        [Authorize(Roles = "1")]
+
         public async Task<IActionResult> update(int id, Account acc)
         {
             if (id != acc.Id)

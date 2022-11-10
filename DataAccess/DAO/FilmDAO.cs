@@ -172,10 +172,24 @@ namespace DataAccess.DAO
         }
         public async Task<Film> GetFilmById(int FilmId)
         {
+            try
+            {
+                using (var context = new CinemaManagementContext())
+                {
+                    IEnumerable<Film> film;
+                     film =  context.Films.Include(x => x.TypeInFilms).Where(x => x.Id == FilmId);
+                    Film cinema = film.SingleOrDefault(mb => mb.Id == FilmId);
+                    return cinema;
 
-            IEnumerable<Film> films = await GetFilms();
-            Film film = films.SingleOrDefault(mb => mb.Id == FilmId);
-            return film;
+                }
+            
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+         
+
         }
         public async Task UpdateActive(int FilmId, bool? acticve)
         {

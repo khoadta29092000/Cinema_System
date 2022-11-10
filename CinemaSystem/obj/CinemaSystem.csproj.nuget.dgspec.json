@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj": {}
+    "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
+    "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,21 +90,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj": {
+    "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj",
         "projectName": "CinemaSystem",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\CinemaSystem\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\CinemaSystem\\CinemaSystem.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\CinemaSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,14 +118,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
+              "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
               },
-              "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\MoMo\\MoMo.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\MoMo\\MoMo.csproj"
+              "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\MoMo\\MoMo.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\MoMo\\MoMo.csproj"
               }
             }
           }
@@ -171,21 +171,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -199,8 +199,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
+              "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -229,15 +229,20 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\MoMo\\MoMo.csproj": {
+    "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\MoMo\\MoMo.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\MoMo\\MoMo.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\MoMo\\MoMo.csproj",
         "projectName": "MoMo",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\Cinema\\Cinema_System\\MoMo\\MoMo.csproj"
+        "projectPath": "C:\\Users\\User\\Desktop\\Cinema_Server\\Cinema_System\\MoMo\\MoMo.csproj",
+        "frameworks": {
+          "net20": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
         "net20": {}
