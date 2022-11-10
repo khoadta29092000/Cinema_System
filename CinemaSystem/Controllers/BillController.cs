@@ -13,6 +13,10 @@ using System.Net;
 using System.IO;
 using System.Web;
 using MimeKit;
+using CinemaSystem.ViewModel;
+using System.Web.Http.Results;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CinemaSystem.Controllers
 {
@@ -84,6 +88,86 @@ namespace CinemaSystem.Controllers
             {
                 var Result = await billRepository.GetBillById(id);
                 return Ok(new { StatusCode = 200, Message = "Load successful", data = Result });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+        }
+
+        [HttpGet("HistoryBill/{AccountId}")]
+        public async Task<ActionResult> GetHistoryBillByAccountID(int AccountId)
+        {
+            try
+            {
+                using (var dbContext = new CinemaManagementContext())
+                {
+                    var listOfTicketsWithAccountId = dbContext.Tickeds.Where(tic => tic.AccountId == AccountId).ToList();
+                    if (listOfTicketsWithAccountId.Any()) {
+
+                        var listOfHistory = listOfTicketsWithAccountId.GroupBy(tic => tic.BillId).Select(x => x.FirstOrDefault()).ToList()
+                            .Select(t => dbContext.Bills.Find(t.BillId)).ToList()
+                            //.Where(ti => ti != null)
+                            .Select(bill => new BillVM()
+                            {
+                                Id = bill.Id,
+                                Checking = (bool)dbContext.Tickeds.Where(ticc => ticc.BillId == bill.Id).ToList().FirstOrDefault(x => true).Checking,
+                                SchedulingId = bill.SchedulingId,
+                                PaymentId = bill.PaymentId,
+                                CouponId = bill.CouponId,
+                                Time = bill.Time,
+                                Total = bill.Total,
+                            }).ToList();
+
+                        return Ok(new { StatusCode = 200, Message = "Load successful", data = listOfHistory });
+                     } else
+                    {
+                        return Ok(new { StatusCode = 200, Message = "No Ticket for AccountId", data = new List<BillVM>() });
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+        }
+
+        [HttpGet("AllHistoryBill")]
+        public async Task<ActionResult> GetAllHistoryBill()
+        {
+            try
+            {
+                using (var dbContext = new CinemaManagementContext())
+                {
+                    var listAccountIsCustomer = dbContext.Accounts.Where(acc => acc.RoleId == 3).Select(x => x.Id).ToList();
+
+                    var listOfTicketsWithAccountId = dbContext.Tickeds.Where(tic => listAccountIsCustomer.Contains(tic.AccountId)).ToList();
+                    if (listOfTicketsWithAccountId.Any())
+                    {
+
+                        var listOfHistory = listOfTicketsWithAccountId.GroupBy(tic => tic.BillId).Select(x => x.FirstOrDefault()).ToList()
+                            .Select(t => dbContext.Bills.Find(t.BillId)).ToList()
+                            //.Where(ti => ti != null)
+                            .Select(bill => new BillVM()
+                            {
+                                Id = bill.Id,
+                                Checking = (bool)dbContext.Tickeds.Where(ticc => ticc.BillId == bill.Id).ToList().FirstOrDefault(x => true).Checking,
+                                SchedulingId = bill.SchedulingId,
+                                PaymentId = bill.PaymentId,
+                                CouponId = bill.CouponId,
+                                Time = bill.Time,
+                                Total = bill.Total,
+                            }).ToList();
+
+                        return Ok(new { StatusCode = 200, Message = "Load successful", data = listOfHistory });
+                    }
+                    else
+                    {
+                        return Ok(new { StatusCode = 200, Message = "No Ticket for AccountId", data = new List<BillVM>() });
+                    }
+                }
+
             }
             catch (Exception ex)
             {
