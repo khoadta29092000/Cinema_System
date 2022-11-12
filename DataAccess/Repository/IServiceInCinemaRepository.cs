@@ -16,6 +16,7 @@ namespace DataAccess.Repository
         Task DeleteServiceInCinema(int Id);
         Task UpdateActive(int Id, bool? active);
         Task UpdateQuantity(int Id, int Quantity);
+        Task UpdateQuantityInCinema(int serviceId,int cinemaId ,int Quantity);
         Task<ServiceInCinema> GetServiceInCinemaById(int Id);
         Task<List<ServiceInCinema>> SearchByCinemaId(int CinemaId, int page, int pageSize);
         Task<List<ServiceInCinema>> SearchByServiceId(int ServiceId, int page, int pageSize);

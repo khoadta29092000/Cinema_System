@@ -54,16 +54,11 @@ namespace DataAccess.DAO
             {
                 using (var context = new CinemaManagementContext())
                 {
-                    var p1 = await context.ServiceInCinemas.FirstOrDefaultAsync(c => c.ServiceId.Equals(m.ServiceId) && c.CinemaId.Equals(m.CinemaId));
-                    if (p1 == null)
-                    {
+                   
+                  
                         context.ServiceInCinemas.Add(m);
                         await context.SaveChangesAsync();
-                    }
-                    else
-                    {
-                        throw new Exception("Service In Cinema is Exist");
-                    }
+                   
                 }
             }
             catch (Exception ex)
@@ -273,6 +268,25 @@ namespace DataAccess.DAO
             {
 
                 var serviceInCinema = new ServiceInCinema() { Id = Id, Quantity = quantity };
+                using (var db = new CinemaManagementContext())
+                {
+                    db.ServiceInCinemas.Attach(serviceInCinema);
+                    db.Entry(serviceInCinema).Property(x => x.Quantity).IsModified = true;
+                    await db.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public async Task UpdateQuantityInCinema(int serviceId,int CinemaId, int quantity)
+        {
+
+            try
+            {
+
+                var serviceInCinema = new ServiceInCinema() { CinemaId = CinemaId,ServiceId = serviceId, Quantity = quantity };
                 using (var db = new CinemaManagementContext())
                 {
                     db.ServiceInCinemas.Attach(serviceInCinema);

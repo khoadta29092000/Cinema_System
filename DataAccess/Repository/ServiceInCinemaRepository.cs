@@ -17,6 +17,7 @@ namespace DataAccess.Repository
         public Task DeleteServiceInCinema(int Id) => ServiceInCinemaDAO.DeleteServiceInCinema(Id);
         public Task UpdateActive(int Id, bool? active) => ServiceInCinemaDAO.Instance.UpdateActive(Id, active);
         public Task UpdateQuantity(int Id, int Quantity) => ServiceInCinemaDAO.Instance.UpdateQuantity(Id, Quantity);
+        public Task UpdateQuantityInCinema(int serviceId,int cinemaId ,int Quantity) => ServiceInCinemaDAO.Instance.UpdateQuantityInCinema(serviceId, cinemaId, Quantity); 
         public Task<ServiceInCinema> GetServiceInCinemaById(int Id) => ServiceInCinemaDAO.Instance.GetServiceInCinemaById(Id);
         public Task<List<ServiceInCinema>> SearchByCinemaId(int CinemaId, int page, int pageSize) => ServiceInCinemaDAO.Instance.SearchByCinemaId(CinemaId, page, pageSize);
         public Task<List<ServiceInCinema>> SearchByServiceId(int ServiceId, int page, int pageSize) => ServiceInCinemaDAO.Instance.SearchByServiceId(ServiceId, page, pageSize);

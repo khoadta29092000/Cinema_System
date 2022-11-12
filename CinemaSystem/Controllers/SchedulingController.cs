@@ -77,7 +77,7 @@ namespace CinemaSystem.Controllers
                     FilmId = scheduling.FilmId,
                     CinemaId = room.CinemaId,
                     Date = scheduling.Date,
-                    EndTime = scheduling.EndTime,
+                    EndTime = EndTime,
                     RoomId  = scheduling.RoomId,
                     StartTime = scheduling.StartTime,
                 };
@@ -116,7 +116,7 @@ namespace CinemaSystem.Controllers
                     RoomId = scheduling.RoomId,
                     Id = scheduling.Id,
                     StartTime = scheduling.StartTime,
-                    EndTime = scheduling.EndTime,
+                    EndTime = EndTime,
                 };
                 await schedulingRepository.UpdateScheduling(updateScheduling);
                 return Ok(new { StatusCode = 200, Message = "Update successful" });
