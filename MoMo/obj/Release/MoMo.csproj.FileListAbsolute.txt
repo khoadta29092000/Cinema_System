@@ -12,3 +12,17 @@ C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Release\MoMo.csproj.CoreComp
 C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Release\MoMo.csproj.CopyComplete
 C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Release\MoMo.exe
 C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Release\MoMo.pdb
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Release\log4net.config
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Release\MoMo.exe.config
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Release\MoMo.exe
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Release\MoMo.pdb
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Release\log4net.dll
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Release\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.MoMoForm.resources
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.Properties.Resources.resources
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.csproj.CopyComplete
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.exe
+C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Release\MoMo.pdb

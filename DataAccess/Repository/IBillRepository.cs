@@ -19,6 +19,7 @@ namespace DataAccess.Repository
         Task AddBill(Bill m);
 
         Task UpdateTotal(int BillId, int total);
+        Task UpdateEmloyeeChecking(int BillId, int accountId);
         Task<List<Bill>> FilterBill(int AccountId, int PaymentId, string CouponId, int page, int pageSize);
     }
 }

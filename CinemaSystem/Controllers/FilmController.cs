@@ -116,7 +116,7 @@ namespace CinemaSystem.Controllers
                     bool isDuplicateName = dbContext.Films
                         .Where(cnm => cnm.Id != film.Id)
                         .Any(cnm => String.Compare(cnm.Title, film.Title) == 0);
-                    if (isDuplicateName) throw new Exception("Duplicate Name Of Film");
+                    if (isDuplicateName) return StatusCode(409, new { StatusCode = 409, Message = "Duplicate Name Of Film" });
 
                     var UnUpdatedModel = dbContext.Films.Find(film.Id);
                     if (UnUpdatedModel != null) 
@@ -141,20 +141,20 @@ namespace CinemaSystem.Controllers
                         //            }));
                         //}   
 
-                        //UnUpdatedModel.Active = film.Active;
-                        //UnUpdatedModel.Title = film.Title;
-                        //UnUpdatedModel.Description = film.Description;
-                        //UnUpdatedModel.Actor = film.Actor;
-                        //UnUpdatedModel.Director = film.Director;
-                        //UnUpdatedModel.Language = film.Language;
-                        //UnUpdatedModel.Rated = film.Rated;
-                        //UnUpdatedModel.Time = film.Time;
-                        //UnUpdatedModel.Trailer = film.Trailer;
-                        //UnUpdatedModel.Id = film.Id;
-                        //UnUpdatedModel.Image = film.Image;
-                        //UnUpdatedModel.TypeInFilms = film.TypeInFilms;
+                        UnUpdatedModel.Active = film.Active;
+                        UnUpdatedModel.Title = film.Title;
+                        UnUpdatedModel.Description = film.Description;
+                        UnUpdatedModel.Actor = film.Actor;
+                        UnUpdatedModel.Director = film.Director;
+                        UnUpdatedModel.Language = film.Language;
+                        UnUpdatedModel.Rated = film.Rated;
+                        UnUpdatedModel.Time = film.Time;
+                        UnUpdatedModel.Trailer = film.Trailer;
+                        UnUpdatedModel.Id = film.Id;
+                        UnUpdatedModel.Image = film.Image;
+                      
 
-                        //await dbContext.SaveChangesAsync();
+                        await dbContext.SaveChangesAsync();
                         return Ok(new { StatusCode = 200, Message = "Update successful" });
                     }
                     else

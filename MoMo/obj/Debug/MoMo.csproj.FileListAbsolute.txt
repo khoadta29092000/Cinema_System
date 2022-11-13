@@ -26,17 +26,3 @@ C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Debug\MoMo.csproj.CoreCompil
 C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Debug\MoMo.csproj.CopyComplete
 C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Debug\MoMo.exe
 C:\Users\DELL\Desktop\Cinema\Cinema_System\MoMo\obj\Debug\MoMo.pdb
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Debug\log4net.config
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Debug\MoMo.exe.config
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Debug\MoMo.exe
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Debug\MoMo.pdb
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Debug\log4net.dll
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\bin\Debug\Newtonsoft.Json.dll
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.csproj.AssemblyReference.cache
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.MoMoForm.resources
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.Properties.Resources.resources
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.csproj.GenerateResource.cache
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.csproj.CoreCompileInputs.cache
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.csproj.CopyComplete
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.exe
-C:\Users\User\Desktop\Cinema_Server\Cinema_System\MoMo\obj\Debug\MoMo.pdb

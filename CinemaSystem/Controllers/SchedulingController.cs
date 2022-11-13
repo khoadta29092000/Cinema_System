@@ -71,17 +71,6 @@ namespace CinemaSystem.Controllers
             {
                 using (var dbContext = new CinemaManagementContext())
                 {
-<<<<<<< Updated upstream
-                    Active = scheduling.Active,
-                    FilmId = scheduling.FilmId,
-                    CinemaId = room.CinemaId,
-                    Date = scheduling.Date,
-                    EndTime = EndTime,
-                    RoomId  = scheduling.RoomId,
-                    StartTime = scheduling.StartTime,
-                };
-                await schedulingRepository.AddScheduling(newScheduling);
-=======
                     if(dbContext.Schedulings.Where(s => s.CinemaId == cinemaId).Where(s => s.Date == date).Count() > 0) return StatusCode(409, new { StatusCode = 409, Message = "Already Had Scheduling for date " + date });
                     var rand = new Random();
                     var schedulings = dbContext.Schedulings.Where(sche => sche.CinemaId == cinemaId && sche.Date == date).ToList();
@@ -115,7 +104,7 @@ namespace CinemaSystem.Controllers
                     }
                     
                 }
->>>>>>> Stashed changes
+
                 return Ok(new { StatusCode = 200, Message = "Add successful" });
             }
             catch (Exception ex)
@@ -126,44 +115,8 @@ namespace CinemaSystem.Controllers
 
         private TimeSpan getLastestEndTime(int roomId, List<Scheduling> schedulings)
         {
-<<<<<<< Updated upstream
-            if (id != scheduling.Id)
-            {
-                return BadRequest();
-            }
-            try
-            {
-                int filmId = scheduling.FilmId ?? default(int);
-                Film film = await filmRepository.GetFilmById(filmId);
-                TimeSpan StartTime = scheduling.StartTime;
-                int range = film.Time + 15 ?? default(int);
-                TimeSpan duration = new TimeSpan(0, range, 0);
-                TimeSpan EndTime = StartTime.Add(duration);
-                var room = await roomRepository.GetRoomById(scheduling.RoomId ?? default(int));
-                var updateScheduling = new Scheduling
-                {
-                    Active = scheduling.Active,
-                    FilmId = scheduling.FilmId,
-                    CinemaId = room.CinemaId,
-                    Date = scheduling.Date,
-                    RoomId = scheduling.RoomId,
-                    Id = scheduling.Id,
-                    StartTime = scheduling.StartTime,
-                    EndTime = EndTime,
-                };
-                await schedulingRepository.UpdateScheduling(updateScheduling);
-                return Ok(new { StatusCode = 200, Message = "Update successful" });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
-            }
-
-
-=======
             if (schedulings.Where(sch => sch.RoomId == roomId).ToList().Count() == 0) return new TimeSpan(7, 30, 0);
             else return schedulings.Where(sch => sch.RoomId == roomId).ToList().Max(sc => sc.EndTime);
->>>>>>> Stashed changes
         }
 
         //[HttpPost]

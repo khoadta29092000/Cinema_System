@@ -14,6 +14,7 @@ namespace DataAccess.Repository
 
         public Task<Ticked> GetTickedById(int SeatId, int BillId, int SchedulingId) => TickedDAO.Instance.GetTickedById(SeatId,BillId,SchedulingId);
         public Task DeleteTicked(int SeatId, int BillId, int SchedulingId) => TickedDAO.DeleteTicked(SeatId, BillId, SchedulingId);
+        public Task UpdateChecking(int SeatId, int BillId, int SchedulingId, int AccountId, bool? check) => TickedDAO.Instance.UpdateChecking(SeatId, BillId, SchedulingId, AccountId, check);
         public Task AddTicked(Ticked m) => TickedDAO.AddTicked(m);
         public Task UpdateTicked(Ticked m) => TickedDAO.UpdateTicked(m);
         public Task<List<Ticked>> FilterTicked(int SeatId, int BillId, int SchedulingId, int page, int pageSize)

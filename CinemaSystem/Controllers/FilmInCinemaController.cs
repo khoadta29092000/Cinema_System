@@ -72,7 +72,7 @@ namespace CinemaSystem.Controllers
                         .Where(f => f.Startime.Value.Date <= DateTime.Now.Date && DateTime.Now.Date <= f.Endtime.Value.Date).ToList()
                         .Select(fic => dbContext.Films.Find(fic.FilmId)).GroupBy(f => f.Id).Select(x => x.FirstOrDefault()).ToList();
 
-                    if (listFilm.Count <= 0) return Ok("No Film for today");
+             
                     return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilm });
 
                 }
@@ -115,7 +115,6 @@ namespace CinemaSystem.Controllers
                         })
                         .ToList();
 
-                    if (listFilm.Count <= 0) return Ok("No Film for today");
                     return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilm });
 
                 }

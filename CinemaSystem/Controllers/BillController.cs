@@ -176,7 +176,7 @@ namespace CinemaSystem.Controllers
         }
 
         [HttpPost]
-       //[Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         public async Task<IActionResult> Create(BillObject billObject)
         {
 
@@ -301,7 +301,7 @@ namespace CinemaSystem.Controllers
                 var BillList = await billRepository.GetBills();
                 Bill idBill = BillList.LastOrDefault(x => x.Id != null);
                 
-                string FilePath = Directory.GetCurrentDirectory() + "\\HTML\\htm.html";
+                string FilePath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory) + "\\HTML\\htm.html";
                 StreamReader str = new StreamReader(FilePath);
                 string MailText = str.ReadToEnd();
                 str.Close();
@@ -340,16 +340,14 @@ namespace CinemaSystem.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "1")]
-        public async Task<IActionResult> update(int id, Scheduling scheduling)
+        public async Task<IActionResult> update(int id, Bill scheduling)
         {
             if (id != scheduling.Id)
             {
                 return BadRequest();
             }
             try
-            {
-
-              
+            {          
                 return Ok(new { StatusCode = 200, Message = "Update successful" });
             }
             catch (Exception ex)
@@ -360,7 +358,36 @@ namespace CinemaSystem.Controllers
 
         }
 
-      
+        [HttpPut("Checking")]
+        [Authorize(Roles = "2")]
+        public async Task<IActionResult> updateChecking(int id, int accountId)
+        {
+   
+           
+            try
+            {
+                List<Ticked> ticked = await tickedRepository.FilterTicked(0, id, 0, 100, 0);
+                List<ServiceInBill> service = await serviceInBillRepository.SearchByCinemaId(id, 100, 0);
+                foreach (Ticked item in ticked)
+                {
+                   await tickedRepository.UpdateChecking(item.SeatId, item.BillId, item.SchedulingId, item.AccountId ,item.Checking);
+                }
+                foreach (ServiceInBill item in service)
+                {
+                    await serviceInBillRepository.UpdateChecking(item.ServiceInCinemaId, item.BillId, item.Checking);
+                }
+                await billRepository.UpdateEmloyeeChecking(id ,accountId);
+                return Ok(new { StatusCode = 200, Message = "Update successful" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(409, new { StatusCode = 409, Message = ex.Message });
+            }
+
+
+        }
+
+
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "1")]
@@ -381,7 +408,7 @@ namespace CinemaSystem.Controllers
 
 
         }
-        [HttpPut("UpdateActive")]
+        [HttpPut("UpdateTotal")]
         [Authorize(Roles = "1")]
         public async Task<IActionResult> updatetotal(int id, int total)
         {

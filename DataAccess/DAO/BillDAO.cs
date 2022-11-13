@@ -175,5 +175,24 @@ namespace DataAccess.DAO
                 throw new Exception(ex.Message);
             }
         }
+        public async Task UpdateEmloyeeChecking(int BillId, int accountId)
+        {
+
+            try
+            {
+
+                var bill = new Bill() { Id = BillId, AccountId = accountId };
+                using (var db = new CinemaManagementContext())
+                {
+                    db.Bills.Attach(bill);
+                    db.Entry(bill).Property(x => x.AccountId).IsModified = true;
+                    await db.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

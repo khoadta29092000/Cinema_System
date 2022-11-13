@@ -14,6 +14,7 @@ namespace DataAccess.Repository
         public Task<List<ServiceDTO>> GetServiceInBills1() => ServiceInBillDAO.GetServiceInBills1();
         public Task<ServiceInBill> GetServiceInBillById(int ServiceInCinemaId, int BillId) => ServiceInBillDAO.Instance.GetServiceInBillById(ServiceInCinemaId, BillId);
         public Task DeleteServiceInBill(int ServiceInCinemaId, int BillId) => ServiceInBillDAO.DeleteServiceInBill(ServiceInCinemaId, BillId);
+        public Task UpdateChecking(int ServiceInCinemaId, int BillId, bool? checking) => ServiceInBillDAO.Instance.UpdateChecking(ServiceInCinemaId, BillId, checking);
         public Task AddServiceInBill(ServiceInBill m) => ServiceInBillDAO.AddServiceInBill(m);
         public Task UpdateServiceInBill(ServiceInBill m) => ServiceInBillDAO.UpdateServiceInBill(m);
         public Task<List<ServiceInBill>> SearchByCinemaId(int ServiceId, int page, int pageSize)

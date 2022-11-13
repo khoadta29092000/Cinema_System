@@ -17,6 +17,7 @@ namespace DataAccess.Repository
         public Task AddBill(Bill m) => BillDAO.AddBill(m);
         public Task UpdateBill(Bill m) => BillDAO.UpdateBill(m);
         public Task UpdateTotal(int BillId, int Total) => BillDAO.Instance.UpdateTotal(BillId, Total);
+        public Task UpdateEmloyeeChecking(int BillId, int accountId) => BillDAO.Instance.UpdateEmloyeeChecking(BillId, accountId);   
         public Task<List<Bill>> FilterBill(int AccountId, int PaymentId, string CouponId, int page, int pageSize)
         => BillDAO.Instance.FilterBill(AccountId, PaymentId, CouponId, page, pageSize);
     }

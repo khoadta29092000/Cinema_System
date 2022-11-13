@@ -155,6 +155,24 @@ namespace DataAccess.DAO
             Ticked ticked = tickeds.SingleOrDefault(c => c.SeatId.Equals(SeatId) && c.BillId == BillId && c.SchedulingId == SchedulingId);
             return ticked;
         }
+        public async Task UpdateChecking(int SeatId, int BillId, int SchedulingId, int AccountId, bool? checking)
+        {
 
+            try
+            {
+
+                var type = new Ticked() { SchedulingId = SchedulingId, SeatId = SeatId, BillId = BillId, AccountId = AccountId, Checking = true };
+                using (var db = new CinemaManagementContext())
+                {
+                    db.Tickeds.Attach(type);
+                    db.Entry(type).Property(x => x.Checking).IsModified = true;
+                    await db.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

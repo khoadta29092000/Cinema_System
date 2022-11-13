@@ -183,7 +183,25 @@ namespace DataAccess.DAO
 
             return searchResult;
         }
-    
-     
+        public async Task UpdateChecking( int serviceInCinemaId, int billId, bool? checking)
+        {
+
+            try
+            {
+
+                var type = new ServiceInBill() { ServiceInCinemaId = serviceInCinemaId, BillId = billId, Checking = true };
+                using (var db = new CinemaManagementContext())
+                {
+                    db.ServiceInBills.Attach(type);
+                    db.Entry(type).Property(x => x.Checking).IsModified = true;
+                    await db.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

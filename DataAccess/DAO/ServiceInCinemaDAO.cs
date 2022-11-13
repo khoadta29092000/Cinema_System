@@ -185,6 +185,7 @@ namespace DataAccess.DAO
                                                                           where serviceInCinema.CinemaId == CinemaId
                                                                           select  new ServiceInCinemaDTO
                                                                {
+                                                                   ServiceInCinemaId = serviceInCinema.Id,
                                                                    Active = service.Active,
                                                                    Description = service.Description,
                                                                    Id = service.Id,

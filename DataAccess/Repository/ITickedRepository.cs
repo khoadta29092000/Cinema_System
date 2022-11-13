@@ -18,5 +18,6 @@ namespace DataAccess.Repository
         Task UpdateTicked(Ticked m);
         Task AddTicked(Ticked m);
         Task<List<Ticked>> FilterTicked(int SeatId, int BillId, int SchedulingId, int page, int pageSize);
+        Task UpdateChecking(int SeatId, int BillId, int SchedulingId, int AccountId, bool? check);
     }
 }

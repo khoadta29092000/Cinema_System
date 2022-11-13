@@ -25,7 +25,7 @@ namespace CinemaSystem.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(int BillId, int SchedulingId, int page, int pageSize)
+        public async Task<IActionResult> GetAll(int BillId, int page, int pageSize)
         {
 
             try
