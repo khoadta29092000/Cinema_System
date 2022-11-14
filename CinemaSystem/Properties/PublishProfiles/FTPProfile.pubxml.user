@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
     <_PublishTargetUrl>ftp://198.37.116.30/www.CinemaSystem.somee.com</_PublishTargetUrl>
-    <History>True|2022-11-13T09:14:16.3664332Z;False|2022-11-13T16:07:37.9371830+07:00;True|2022-11-09T13:32:58.9732060+07:00;False|2022-11-09T13:31:09.4492647+07:00;False|2022-11-09T13:28:22.4334408+07:00;False|2022-11-09T13:27:19.0008449+07:00;True|2022-11-03T02:01:39.0364884+07:00;False|2022-11-03T01:59:31.2287313+07:00;True|2022-10-31T23:10:46.3143662+07:00;False|2022-10-31T23:09:24.4526978+07:00;False|2022-10-31T23:07:04.0482099+07:00;False|2022-10-31T23:05:02.6311144+07:00;True|2022-10-30T07:00:46.7621149+07:00;False|2022-10-30T06:59:15.1111573+07:00;True|2022-10-26T14:43:38.3517157+07:00;True|2022-10-25T14:00:32.5140117+07:00;False|2022-10-25T13:55:55.9054063+07:00;False|2022-10-25T13:54:58.8837387+07:00;True|2022-10-24T14:26:20.1866377+07:00;True|2022-10-21T12:30:56.3584319+07:00;</History>
+    <History>True|2022-11-13T18:26:27.6016351Z;False|2022-11-14T01:25:13.1417040+07:00;False|2022-11-14T01:22:31.9943777+07:00;False|2022-11-14T01:21:05.6418428+07:00;True|2022-11-13T16:14:16.3664332+07:00;False|2022-11-13T16:07:37.9371830+07:00;True|2022-11-09T13:32:58.9732060+07:00;False|2022-11-09T13:31:09.4492647+07:00;False|2022-11-09T13:28:22.4334408+07:00;False|2022-11-09T13:27:19.0008449+07:00;True|2022-11-03T02:01:39.0364884+07:00;False|2022-11-03T01:59:31.2287313+07:00;True|2022-10-31T23:10:46.3143662+07:00;False|2022-10-31T23:09:24.4526978+07:00;False|2022-10-31T23:07:04.0482099+07:00;False|2022-10-31T23:05:02.6311144+07:00;True|2022-10-30T07:00:46.7621149+07:00;False|2022-10-30T06:59:15.1111573+07:00;True|2022-10-26T14:43:38.3517157+07:00;True|2022-10-25T14:00:32.5140117+07:00;False|2022-10-25T13:55:55.9054063+07:00;False|2022-10-25T13:54:58.8837387+07:00;True|2022-10-24T14:26:20.1866377+07:00;True|2022-10-21T12:30:56.3584319+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -27,31 +27,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2021 18:53:34</publishTime>
     </File>
     <File Include="BusinessObject.dll">
-      <publishTime>11/13/2022 16:10:31</publishTime>
+      <publishTime>11/14/2022 01:20:38</publishTime>
     </File>
     <File Include="BusinessObject.pdb">
-      <publishTime>11/13/2022 16:10:31</publishTime>
+      <publishTime>11/14/2022 01:20:38</publishTime>
     </File>
     <File Include="CinemaSystem.deps.json">
-      <publishTime>11/13/2022 16:10:35</publishTime>
+      <publishTime>11/14/2022 01:25:34</publishTime>
     </File>
     <File Include="CinemaSystem.dll">
       <publishTime>11/13/2022 16:10:34</publishTime>
     </File>
     <File Include="CinemaSystem.exe">
-      <publishTime>11/13/2022 16:10:34</publishTime>
+      <publishTime>11/14/2022 01:25:34</publishTime>
     </File>
     <File Include="CinemaSystem.pdb">
-      <publishTime>11/13/2022 16:10:34</publishTime>
+      <publishTime>11/14/2022 01:25:34</publishTime>
     </File>
     <File Include="CinemaSystem.runtimeconfig.json">
       <publishTime>11/13/2022 16:07:00</publishTime>
     </File>
     <File Include="DataAccess.dll">
-      <publishTime>11/13/2022 16:06:57</publishTime>
+      <publishTime>11/14/2022 01:20:39</publishTime>
     </File>
     <File Include="DataAccess.pdb">
-      <publishTime>11/13/2022 16:06:57</publishTime>
+      <publishTime>11/14/2022 01:20:39</publishTime>
     </File>
     <File Include="Grpc.Core.Api.dll">
       <publishTime>09/26/2022 08:33:14</publishTime>
@@ -264,7 +264,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/02/2013 03:54:24</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>11/13/2022 16:10:50</publishTime>
+      <publishTime>11/14/2022 01:25:35</publishTime>
     </File>
   </ItemGroup>
 </Project>

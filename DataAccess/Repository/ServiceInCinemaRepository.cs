@@ -19,6 +19,7 @@ namespace DataAccess.Repository
         public Task UpdateQuantity(int Id, int Quantity) => ServiceInCinemaDAO.Instance.UpdateQuantity(Id, Quantity);
         public Task UpdateQuantityInCinema(int serviceId,int cinemaId ,int Quantity) => ServiceInCinemaDAO.Instance.UpdateQuantityInCinema(serviceId, cinemaId, Quantity); 
         public Task<ServiceInCinema> GetServiceInCinemaById(int Id) => ServiceInCinemaDAO.Instance.GetServiceInCinemaById(Id);
+        public Task<ServiceInCinema> GetServiceById(int ServiceId, int cinemaId) => ServiceInCinemaDAO.Instance.GetServiceById(ServiceId, cinemaId);
         public Task<List<ServiceInCinema>> SearchByCinemaId(int CinemaId, int page, int pageSize) => ServiceInCinemaDAO.Instance.SearchByCinemaId(CinemaId, page, pageSize);
         public Task<List<ServiceInCinema>> SearchByServiceId(int ServiceId, int page, int pageSize) => ServiceInCinemaDAO.Instance.SearchByServiceId(ServiceId, page, pageSize);
         public Task<List<ServiceInCinemaDTO>> GetAllServiceInCinema(int CinemaId, int page, int pageSize) => ServiceInCinemaDAO.GetAllServiceInCinema(CinemaId, page, pageSize);

@@ -125,6 +125,7 @@ namespace CinemaSystem.Controllers
                 Service service = await serviceRepository.GetServiceById(serviceInCinema.ServiceId);
                 int newQuantity = service.Quantity - serviceInCinema.Quantity ?? default(int);
                 await serviceRepository.UpdateQuantity(service.Id, newQuantity);
+                ServiceInCinema idServiceInCinema = await serviceInCinemaRepository.GetServiceById(serviceInCinema.ServiceId, serviceInCinema.CinemaId);
                 var serviceInCinema1 = await serviceInCinemaRepository.GetServicenCinemas();
                 var p1 =  serviceInCinema1.FirstOrDefault(c => c.ServiceId.Equals(serviceInCinema.ServiceId) && c.CinemaId.Equals(serviceInCinema.CinemaId));
                
@@ -135,7 +136,7 @@ namespace CinemaSystem.Controllers
                 else
                 {
                     int QuantityService = p1.Quantity + serviceInCinema.Quantity ?? default(int);
-                    await serviceInCinemaRepository.UpdateQuantityInCinema(serviceInCinema.ServiceId, serviceInCinema.CinemaId, QuantityService);
+                    await serviceInCinemaRepository.UpdateQuantity(idServiceInCinema.Id , QuantityService);
                 }
               
                 return Ok(new { StatusCode = 200, Message = "Add successful" });
