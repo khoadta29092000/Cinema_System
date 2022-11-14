@@ -84,18 +84,20 @@ namespace CinemaSystem.Controllers
             }
         }
 
-        [HttpGet("AllFilmInCinemaToday/{CinemaId}")]
-        public async Task<IActionResult> GetAllFilmInCinemaTodayByCinemaId(int CinemaId, int page, int pageSize)
+        [HttpGet("AllFilmInCinemaToday/{CinemaId}/{date}")]
+        public async Task<IActionResult> GetAllFilmInCinemaTodayByCinemaId(int CinemaId, DateTime date, int page, int pageSize)
         {
             var filmInCinemaFromDB = new List<FilmInCinema>();
             try
             {
+                if (date == null) date = DateTime.Now;
                 using (var dbContext = new CinemaManagementContext())
                 {
                     filmInCinemaFromDB = await dbContext.FilmInCinemas.ToListAsync();
+                    //var filmInCinemaInDate = dbContext.FilmInCinemas.Where(f => f.CinemaId == cinemaId).Where(fic => fic.Startime <= date && date <= fic.Endtime).Select(x => x.FilmId).ToList();
                     var listFilm = filmInCinemaFromDB
                         .Where(f => f.CinemaId == CinemaId)
-                        .Where(f => f.Startime.Value.Date <= DateTime.Now.Date && DateTime.Now.Date <= f.Endtime.Value.Date).ToList()
+                        .Where(f => f.Startime.Value.Date <= date.Date && date.Date <= f.Endtime.Value.Date).ToList()
                         .Select(fic => dbContext.Films.Find(fic.FilmId))
                         .GroupBy(f => f.Id).Select(x => x.FirstOrDefault())
                         .Select(f => new FilmInCinemaVM() {
