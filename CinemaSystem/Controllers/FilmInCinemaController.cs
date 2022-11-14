@@ -90,7 +90,6 @@ namespace CinemaSystem.Controllers
             var filmInCinemaFromDB = new List<FilmInCinema>();
             try
             {
-                if (date == null) date = DateTime.Now;
                 using (var dbContext = new CinemaManagementContext())
                 {
                     filmInCinemaFromDB = await dbContext.FilmInCinemas.ToListAsync();
@@ -158,10 +157,10 @@ namespace CinemaSystem.Controllers
             {
                 using (var dbContext = new CinemaManagementContext())
                 {
-                    var listFilmInCinema = dbContext.FilmInCinemas.Where(f => f.CinemaId == cinemaId).Select(f => f.FilmId).Distinct().ToList();
+                    var listFilmInCinema = dbContext.FilmInCinemas.Where(f => f.CinemaId == cinemaId).ToList().Select(f => f.FilmId).Distinct().ToList();
                     if (listFilmInCinema.Count == 0)
                     {
-                        return Ok(new { StatusCode = 200, Message = "Load successful", data = dbContext.Films });
+                        return Ok(new { StatusCode = 200, Message = "Load successful", data = dbContext.Films.ToList() });
                     }
                     var listFilmNotInCinema = dbContext.Films.Where(f => !listFilmInCinema.Contains(f.Id)).ToList();
                     return Ok(new { StatusCode = 200, Message = "Load successful", data = listFilmNotInCinema });
