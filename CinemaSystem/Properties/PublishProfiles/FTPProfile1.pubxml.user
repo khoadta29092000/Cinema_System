@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
     <_PublishTargetUrl>ftp://198.37.116.25/www.CinemaSystem2.somee.com</_PublishTargetUrl>
-    <History>True|2022-11-13T18:32:03.2412699Z;False|2022-10-25T13:56:50.6152127+07:00;False|2022-10-25T13:53:39.1560648+07:00;True|2022-10-24T14:38:38.9610368+07:00;</History>
+    <History>True|2022-11-15T03:00:17.1790077Z;False|2022-11-15T09:58:13.3196833+07:00;True|2022-11-15T01:28:49.8513343+07:00;False|2022-11-15T01:27:26.2736921+07:00;True|2022-11-14T01:32:03.2412699+07:00;False|2022-10-25T13:56:50.6152127+07:00;False|2022-10-25T13:53:39.1560648+07:00;True|2022-10-24T14:38:38.9610368+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -33,25 +33,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/14/2022 01:20:38</publishTime>
     </File>
     <File Include="CinemaSystem.deps.json">
-      <publishTime>11/14/2022 01:25:34</publishTime>
+      <publishTime>11/15/2022 09:55:37</publishTime>
     </File>
     <File Include="CinemaSystem.dll">
-      <publishTime>11/14/2022 01:25:34</publishTime>
+      <publishTime>11/15/2022 01:27:55</publishTime>
     </File>
     <File Include="CinemaSystem.exe">
-      <publishTime>11/14/2022 01:25:34</publishTime>
+      <publishTime>11/15/2022 09:55:36</publishTime>
     </File>
     <File Include="CinemaSystem.pdb">
-      <publishTime>11/14/2022 01:25:34</publishTime>
+      <publishTime>11/15/2022 09:55:36</publishTime>
     </File>
     <File Include="CinemaSystem.runtimeconfig.json">
-      <publishTime>11/13/2022 16:07:00</publishTime>
+      <publishTime>11/15/2022 09:55:37</publishTime>
     </File>
     <File Include="DataAccess.dll">
-      <publishTime>11/14/2022 01:20:39</publishTime>
+      <publishTime>11/15/2022 01:26:10</publishTime>
     </File>
     <File Include="DataAccess.pdb">
-      <publishTime>11/14/2022 01:20:39</publishTime>
+      <publishTime>11/15/2022 01:26:10</publishTime>
     </File>
     <File Include="Grpc.Core.Api.dll">
       <publishTime>09/26/2022 08:33:14</publishTime>
@@ -264,7 +264,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/02/2013 03:54:24</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>11/14/2022 01:29:07</publishTime>
+      <publishTime>11/15/2022 09:56:26</publishTime>
     </File>
   </ItemGroup>
 </Project>
