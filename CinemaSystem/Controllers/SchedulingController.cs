@@ -80,13 +80,14 @@ namespace CinemaSystem.Controllers
                     if (filmInCinemaInDate.Count <= 0) return StatusCode(409, new { StatusCode = 409, Message = "No Film In " + date });
                     foreach (int roomId in roomIdCount)
                     {
+                        
                         while(TimeSpan.Compare(getLastestEndTime(roomId, schedulings), lastHourOfDate) == -1)
                         {
                             TimeSpan startTime = getLastestEndTime(roomId, schedulings);
                             var randomFilmId = rand.Next(0, filmInCinemaInDate.Count());
                             TimeSpan endTime = startTime.Add(new TimeSpan(0, dbContext.Films.Find(filmInCinemaInDate[randomFilmId]).Time + 15 ?? default(int), 0));
                             if (TimeSpan.Compare(endTime, lastHourOfDate) == 1) break;
-                            schedulings = dbContext.Schedulings.Where(sche => sche.CinemaId == cinemaId && sche.Date == date).ToList();
+                            
                             var newScheduling = new Scheduling
                             {
                                 Active = true,
@@ -100,6 +101,8 @@ namespace CinemaSystem.Controllers
 
                             dbContext.Schedulings.Add(newScheduling);
                             await dbContext.SaveChangesAsync();
+
+                            schedulings = dbContext.Schedulings.Where(sche => sche.CinemaId == cinemaId && sche.Date == date).ToList();
                         }
                     }
                     
