@@ -8,14 +8,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
     <_PublishTargetUrl>ftp://198.37.116.25/www.CinemaSystem2.somee.com</_PublishTargetUrl>
-    <History>False|2022-10-25T06:56:50.6152127Z;False|2022-10-25T13:53:39.1560648+07:00;True|2022-10-24T14:38:38.9610368+07:00;</History>
+    <History>True|2022-11-15T03:00:17.1790077Z;False|2022-11-15T09:58:13.3196833+07:00;True|2022-11-15T01:28:49.8513343+07:00;False|2022-11-15T01:27:26.2736921+07:00;True|2022-11-14T01:32:03.2412699+07:00;False|2022-10-25T13:56:50.6152127+07:00;False|2022-10-25T13:53:39.1560648+07:00;True|2022-10-24T14:38:38.9610368+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
-      <publishTime>10/07/2022 13:56:12</publishTime>
+      <publishTime>11/10/2022 17:07:54</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>10/07/2022 13:56:12</publishTime>
+      <publishTime>11/10/2022 17:07:54</publishTime>
     </File>
     <File Include="Azure.Core.dll">
       <publishTime>04/05/2022 04:38:56</publishTime>
@@ -23,32 +23,47 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Azure.Identity.dll">
       <publishTime>04/06/2022 03:26:00</publishTime>
     </File>
+    <File Include="BouncyCastle.Crypto.dll">
+      <publishTime>10/19/2021 18:53:34</publishTime>
+    </File>
     <File Include="BusinessObject.dll">
-      <publishTime>10/24/2022 14:29:52</publishTime>
+      <publishTime>11/14/2022 01:20:38</publishTime>
     </File>
     <File Include="BusinessObject.pdb">
-      <publishTime>10/24/2022 14:29:52</publishTime>
+      <publishTime>11/14/2022 01:20:38</publishTime>
     </File>
     <File Include="CinemaSystem.deps.json">
-      <publishTime>10/25/2022 13:56:13</publishTime>
+      <publishTime>11/15/2022 09:55:37</publishTime>
     </File>
     <File Include="CinemaSystem.dll">
-      <publishTime>10/24/2022 14:33:04</publishTime>
+      <publishTime>11/15/2022 01:27:55</publishTime>
     </File>
     <File Include="CinemaSystem.exe">
-      <publishTime>10/25/2022 13:56:12</publishTime>
+      <publishTime>11/15/2022 09:55:36</publishTime>
     </File>
     <File Include="CinemaSystem.pdb">
-      <publishTime>10/25/2022 13:56:12</publishTime>
+      <publishTime>11/15/2022 09:55:36</publishTime>
     </File>
     <File Include="CinemaSystem.runtimeconfig.json">
-      <publishTime>10/20/2022 14:09:15</publishTime>
+      <publishTime>11/15/2022 09:55:37</publishTime>
     </File>
     <File Include="DataAccess.dll">
-      <publishTime>10/24/2022 14:20:20</publishTime>
+      <publishTime>11/15/2022 01:26:10</publishTime>
     </File>
     <File Include="DataAccess.pdb">
-      <publishTime>10/25/2022 13:50:01</publishTime>
+      <publishTime>11/15/2022 01:26:10</publishTime>
+    </File>
+    <File Include="Grpc.Core.Api.dll">
+      <publishTime>09/26/2022 08:33:14</publishTime>
+    </File>
+    <File Include="Grpc.Core.dll">
+      <publishTime>09/26/2022 08:33:08</publishTime>
+    </File>
+    <File Include="log4net.config">
+      <publishTime>11/10/2022 17:07:56</publishTime>
+    </File>
+    <File Include="log4net.dll">
+      <publishTime>11/10/2022 17:07:56</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
       <publishTime>10/27/2020 05:59:54</publishTime>
@@ -131,11 +146,32 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.SqlServer.Server.dll">
       <publishTime>01/28/2022 00:19:08</publishTime>
     </File>
+    <File Include="MimeKit.dll">
+      <publishTime>10/24/2022 21:17:38</publishTime>
+    </File>
+    <File Include="MoMo.exe">
+      <publishTime>11/13/2022 16:06:53</publishTime>
+    </File>
+    <File Include="MoMo.exe.config">
+      <publishTime>11/10/2022 17:07:55</publishTime>
+    </File>
+    <File Include="MoMo.pdb">
+      <publishTime>11/13/2022 16:06:53</publishTime>
+    </File>
     <File Include="Newtonsoft.Json.Bson.dll">
       <publishTime>11/28/2018 06:10:18</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
       <publishTime>04/22/2019 08:06:16</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libgrpc_csharp_ext.arm64.so">
+      <publishTime>09/21/2022 09:10:46</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libgrpc_csharp_ext.x64.so">
+      <publishTime>09/21/2022 09:10:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libgrpc_csharp_ext.x64.dylib">
+      <publishTime>09/21/2022 09:10:48</publishTime>
     </File>
     <File Include="runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll">
       <publishTime>08/06/2022 01:32:30</publishTime>
@@ -146,14 +182,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
       <publishTime>08/03/2022 02:02:08</publishTime>
     </File>
+    <File Include="runtimes/win-x64/native/grpc_csharp_ext.x64.dll">
+      <publishTime>09/26/2022 08:33:08</publishTime>
+    </File>
     <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
       <publishTime>08/03/2022 02:02:08</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/grpc_csharp_ext.x86.dll">
+      <publishTime>09/26/2022 08:33:08</publishTime>
     </File>
     <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
       <publishTime>08/03/2022 02:02:08</publishTime>
     </File>
     <File Include="runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll">
       <publishTime>08/06/2022 01:32:28</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.1/System.Security.Cryptography.Pkcs.dll">
+      <publishTime>10/23/2021 06:51:08</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll">
+      <publishTime>10/23/2021 06:47:18</publishTime>
     </File>
     <File Include="runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll">
       <publishTime>10/20/2020 01:52:44</publishTime>
@@ -173,6 +221,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="System.Configuration.ConfigurationManager.dll">
       <publishTime>10/20/2020 01:52:30</publishTime>
     </File>
+    <File Include="System.Formats.Asn1.dll">
+      <publishTime>10/23/2021 06:41:58</publishTime>
+    </File>
     <File Include="System.IdentityModel.Tokens.Jwt.dll">
       <publishTime>07/02/2022 01:23:16</publishTime>
     </File>
@@ -188,8 +239,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="System.Runtime.CompilerServices.Unsafe.dll">
       <publishTime>10/23/2021 06:40:56</publishTime>
     </File>
+    <File Include="System.Security.Cryptography.Pkcs.dll">
+      <publishTime>10/23/2021 06:50:04</publishTime>
+    </File>
     <File Include="System.Security.Cryptography.ProtectedData.dll">
       <publishTime>10/20/2020 01:52:26</publishTime>
+    </File>
+    <File Include="System.Text.Encoding.CodePages.dll">
+      <publishTime>10/23/2021 06:47:22</publishTime>
     </File>
     <File Include="System.Text.Encodings.Web.dll">
       <publishTime>10/23/2021 06:41:26</publishTime>
@@ -207,7 +264,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/02/2013 03:54:24</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/25/2022 13:52:47</publishTime>
+      <publishTime>11/15/2022 09:56:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -243,6 +243,13 @@ namespace DataAccess.DAO
             }
 
         }
+        public async Task<ServiceInCinema> GetServiceById(int ServiceId, int cinemaId)
+        {
+
+            IEnumerable<ServiceInCinema> services = await GetServiceInCinemas();
+            ServiceInCinema service = services.SingleOrDefault(mb => mb.ServiceId == ServiceId && mb.CinemaId == cinemaId);
+            return service;
+        }
         public async Task UpdateActive(int Id, bool? acticve)
         {
 
